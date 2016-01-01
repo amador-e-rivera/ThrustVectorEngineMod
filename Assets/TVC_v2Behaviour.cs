@@ -51,26 +51,43 @@ public class TVC_v2Behaviour : Jundroo.SimplePlanes.ModTools.Parts.PartModifierB
     {
         try
         {
-            float angle_Vtol = -_player.Controls.Vtol * _modifier.maxVectorAngle;
-            float dir_Vtol = Math.Sign(angle_Vtol - prevAngle_Vtol);
+            float angle_Vtol = _player.Controls.Vtol * _modifier.maxVectorAngle;
+            float dir_Vtol = Math.Sign(-angle_Vtol - prevAngle_Vtol);
 
             float angle_Yaw = -_player.Controls.Yaw * _modifier.maxVectorAngle;
             float dir_Yaw = Math.Sign(angle_Yaw - prevAngle_Yaw);
 
             // Controls the Up/Down (pitch) angle of nozzle
-            if (Math.Sign(angle_Vtol) <= _modifier.maxVectorAngle || Math.Sign(angle_Vtol) == _modifier.maxVectorAngle && dir_Vtol != prevDir_Vtol && dir_Vtol != 0)
+            if (Math.Sign(-angle_Vtol) <= _modifier.maxVectorAngle || Math.Sign(-angle_Vtol) == _modifier.maxVectorAngle && dir_Vtol != prevDir_Vtol && dir_Vtol != 0)
             {
-                centerOfThrust.Rotate(angle_Vtol - prevAngle_Vtol, 0, 0, Space.Self);
+                centerOfThrust.Rotate(-angle_Vtol - prevAngle_Vtol, 0, 0, Space.Self);
             }
 
+            // Controls the Left/Right (yaw) angle of nozzle
+            //if (Math.Sign(angle_Yaw) <= _modifier.maxVectorAngle || Math.Sign(angle_Yaw) == _modifier.maxVectorAngle && dir_Yaw != prevDir_Yaw && dir_Yaw != 0)
+            //{
+            //    centerOfThrust.Rotate(0, -(angle_Yaw - prevAngle_Yaw), 0, Space.Self);
+            //}
+
+            // Resets Left/Right (yaw) angle to 180f when yaw angle is zero. Without this, the center of thrust sometimes does not re-center.
+            //if(angle_Yaw == 0)
+            //{
+            //    centerOfThrust.localEulerAngles = new Vector3(centerOfThrust.localEulerAngles.x, 180f, centerOfThrust.localEulerAngles.z);
+            //}
+
+            smoke.localEulerAngles = new Vector3(angle_Vtol, smoke.localEulerAngles.y, 180f + angle_Yaw);
+            nozzle.localEulerAngles = new Vector3(angle_Vtol, nozzle.localEulerAngles.y, angle_Yaw);
+
             prevDir_Vtol = dir_Vtol;
-            prevAngle_Vtol = angle_Vtol;
+            prevAngle_Vtol = -angle_Vtol;
 
             prevDir_Yaw = dir_Yaw;
             prevAngle_Yaw = angle_Yaw;
 
-            smoke.localEulerAngles = new Vector3(_player.Controls.Vtol *  _modifier.maxVectorAngle, smoke.localEulerAngles.y, 180f + _player.Controls.Yaw * _modifier.maxVectorAngle);
-            nozzle.localEulerAngles = new Vector3(_player.Controls.Vtol *  _modifier.maxVectorAngle, nozzle.localEulerAngles.y, _player.Controls.Yaw * _modifier.maxVectorAngle);
+            _service.GameWorld.ShowStatusMessage(
+                "CenterOfThrust: " + centerOfThrust.localEulerAngles.x + ", " + centerOfThrust.localEulerAngles.y + ", " + centerOfThrust.localEulerAngles.z + "\n" +
+                "Vtol:" + angle_Vtol + "\n" +
+                "angle_Yaw: " + angle_Yaw);
         }
         catch (Exception ex)
         {
