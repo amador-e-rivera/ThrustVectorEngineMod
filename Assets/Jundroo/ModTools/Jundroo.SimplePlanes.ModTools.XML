@@ -1,0 +1,4006 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Jundroo.SimplePlanes.ModTools</name>
+    </assembly>
+    <members>
+        <member name="T:Jundroo.SimplePlanes.ModTools.DesignerPlugin">
+            <summary>
+            A component that is added to a game object that should be created whenever a map is loaded.
+            </summary>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.DevConsole.IArgumentParser`1">
+            <summary>
+            Interface for a class that handles the parsing of console command arguments to a specified type.
+            </summary>
+            <typeparam name="T">The type of the argument</typeparam>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.DevConsole.IArgumentParser`1.HelpMessage">
+            <summary>
+            Gets the help message for the parser.
+            </summary>
+            <value>
+            The help message for the parser.
+            A message that may help a user determine how to format their argument such that the parser can understand it.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.DevConsole.IArgumentParser`1.Priority">
+            <summary>
+            Gets the priority of the parser.
+            </summary>
+            <value>
+            The priority of the parser.
+            Parsers with lower priority numbers can attempt to parse an argument before parsers of larger priority numbers.
+            All default parsers have a priority of 10.
+            </value>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.DevConsole.IArgumentParser`1.TryParse(System.String,`0@)">
+            <summary>
+            Tries to parse the argument to argument type handled by this parser.
+            </summary>
+            <param name="value">The argument value to parse.</param>
+            <param name="result">The result of the parsing.</param>
+            <returns><c>true</c> if the argument was parsed successfully, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.DevConsole.IDevConsole">
+            <summary>
+            A service provider for interacting with the developer console.
+            </summary>
+        </member>
+        <member name="E:Jundroo.SimplePlanes.ModTools.DevConsole.IDevConsole.Initialized">
+            <summary>
+            Occurs when the dev console is initialized.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.DevConsole.IDevConsole.RegisterArgumentParser``1(Jundroo.SimplePlanes.ModTools.DevConsole.IArgumentParser{``0})">
+            <summary>
+            Registers the argument parser.
+            </summary>
+            <typeparam name="T">The type of arguments supported by the parser.</typeparam>
+            <param name="parser">The parser being registered.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.DevConsole.IDevConsole.RegisterCommand(System.String,System.Action)">
+            <summary>
+            Registers the specified command.
+            </summary>
+            <param name="command">The command to register.</param>
+            <param name="commandAction">The command action.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.DevConsole.IDevConsole.RegisterCommand``1(System.String,System.Action{``0})">
+            <summary>
+            Registers the specified command.
+            </summary>
+            <typeparam name="T">The type of command argument #1.</typeparam>
+            <param name="command">The command to register.</param>
+            <param name="commandAction">The command action.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.DevConsole.IDevConsole.RegisterCommand``2(System.String,System.Action{``0,``1})">
+            <summary>
+            Registers the specified command.
+            </summary>
+            <typeparam name="T1">The type of command argument #1.</typeparam>
+            <typeparam name="T2">The type of command argument #2.</typeparam>
+            <param name="command">The command to register.</param>
+            <param name="commandAction">The command action.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.DevConsole.IDevConsole.RegisterCommand``3(System.String,System.Action{``0,``1,``2})">
+            <summary>
+            Registers the specified command.
+            </summary>
+            <typeparam name="T1">The type of command argument #1.</typeparam>
+            <typeparam name="T2">The type of command argument #2.</typeparam>
+            <typeparam name="T3">The type of command argument #3.</typeparam>
+            <param name="command">The command to register.</param>
+            <param name="commandAction">The command action.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.DevConsole.IDevConsole.RegisterCommand``4(System.String,System.Action{``0,``1,``2,``3})">
+            <summary>
+            Registers the specified command.
+            </summary>
+            <typeparam name="T1">The type of command argument #1.</typeparam>
+            <typeparam name="T2">The type of command argument #2.</typeparam>
+            <typeparam name="T3">The type of command argument #3.</typeparam>
+            <typeparam name="T4">The type of command argument #4.</typeparam>
+            <param name="command">The command to register.</param>
+            <param name="commandAction">The command action.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.DevConsole.IDevConsole.RegisterCommand``5(System.String,System.Func{``0,``1,``2,``3,``4})">
+            <summary>
+            Registers the specified command.
+            </summary>
+            <typeparam name="T1">The type of command argument #1.</typeparam>
+            <typeparam name="T2">The type of command argument #2.</typeparam>
+            <typeparam name="T3">The type of command argument #3.</typeparam>
+            <typeparam name="T4">The type of command argument #4.</typeparam>
+            <typeparam name="TResult">The type of command result.</typeparam>
+            <param name="command">The command to register.</param>
+            <param name="commandAction">The command action.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.DevConsole.IDevConsole.RegisterCommand``4(System.String,System.Func{``0,``1,``2,``3})">
+            <summary>
+            Registers the specified command.
+            </summary>
+            <typeparam name="T1">The type of command argument #1.</typeparam>
+            <typeparam name="T2">The type of command argument #2.</typeparam>
+            <typeparam name="T3">The type of command argument #3.</typeparam>
+            <typeparam name="TResult">The type of command result.</typeparam>
+            <param name="command">The command to register.</param>
+            <param name="commandAction">The command action.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.DevConsole.IDevConsole.RegisterCommand``3(System.String,System.Func{``0,``1,``2})">
+            <summary>
+            Registers the specified command.
+            </summary>
+            <typeparam name="T1">The type of command argument #1.</typeparam>
+            <typeparam name="T2">The type of command argument #2.</typeparam>
+            <typeparam name="TResult">The type of command result.</typeparam>
+            <param name="command">The command to register.</param>
+            <param name="commandAction">The command action.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.DevConsole.IDevConsole.RegisterCommand``2(System.String,System.Func{``0,``1})">
+            <summary>
+            Registers the specified command.
+            </summary>
+            <typeparam name="T">The type of command argument.</typeparam>
+            <typeparam name="TResult">The type of command result.</typeparam>
+            <param name="command">The command to register.</param>
+            <param name="commandAction">The command action.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.DevConsole.IDevConsole.RegisterCommand``1(System.String,System.Func{``0})">
+            <summary>
+            Registers the specified command.
+            </summary>
+            <typeparam name="TResult">The type of command result.</typeparam>
+            <param name="command">The command to register.</param>
+            <param name="commandAction">The command action.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.DevConsole.IDevConsole.UnregisterCommand(System.String)">
+            <summary>
+            Unregisters the specified command.
+            </summary>
+            <param name="command">The command to unregister.</param>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.Events.AircraftViewChangedEventArgs">
+            <summary>
+            The event args for an event that fires when the aircraft view is changed.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Events.AircraftViewChangedEventArgs.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Jundroo.SimplePlanes.ModTools.Events.AircraftViewChangedEventArgs"/> class.
+            </summary>
+            <param name="viewName">The name of the new view.</param>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Events.AircraftViewChangedEventArgs.ViewName">
+            <summary>
+            Gets the name of the new view.
+            </summary>
+            <value>
+            The name of the new view.
+            </value>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.Events.FloatingOriginChangedEventArgs">
+            <summary>
+            The event arguments used for the event that fires when the floating origin position is changed.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Events.FloatingOriginChangedEventArgs.#ctor(UnityEngine.Vector3,UnityEngine.Vector3)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Jundroo.SimplePlanes.ModTools.Events.FloatingOriginChangedEventArgs"/> class.
+            </summary>
+            <param name="oldOffset">The old floating origin offset.</param>
+            <param name="newOffset">The new floating origin offset.</param>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Events.FloatingOriginChangedEventArgs.NewFloatingOriginOffset">
+            <summary>
+            Gets the new floating origin offset.
+            </summary>
+            <value>
+            The new floating origin offset.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Events.FloatingOriginChangedEventArgs.OldFloatingOriginOffset">
+            <summary>
+            Gets the old floating origin offset.
+            </summary>
+            <value>
+            The old floating origin offset.
+            </value>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.Events.LevelChangedEventArgs">
+            <summary>
+            The event args for events that indicate a change in the current level.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Events.LevelChangedEventArgs.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Jundroo.SimplePlanes.ModTools.Events.LevelChangedEventArgs"/> class.
+            </summary>
+            <param name="levelName">Name of the level.</param>
+            <param name="mapName">Name of the map.</param>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Events.LevelChangedEventArgs.LevelName">
+            <summary>
+            Gets the name of the level.
+            </summary>
+            <value>
+            The name of the level.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Events.LevelChangedEventArgs.MapName">
+            <summary>
+            Gets the name of the map.
+            </summary>
+            <value>
+            The name of the map.
+            </value>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.Events.MapChangedEventArgs">
+            <summary>
+            The event args for events that indicate a change in the current map.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Events.MapChangedEventArgs.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Jundroo.SimplePlanes.ModTools.Events.MapChangedEventArgs"/> class.
+            </summary>
+            <param name="levelName">Name of the level.</param>
+            <param name="mapName">Name of the map.</param>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Events.MapChangedEventArgs.LevelName">
+            <summary>
+            Gets the name of the level.
+            </summary>
+            <value>
+            The name of the level.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Events.MapChangedEventArgs.MapName">
+            <summary>
+            Gets the name of the map.
+            </summary>
+            <value>
+            The name of the map.
+            </value>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.Events.MapLocationChangedEventArgs">
+            <summary>
+            The event args for events that indicate a change in the current location.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Events.MapLocationChangedEventArgs.#ctor(System.String,UnityEngine.Vector3,UnityEngine.Vector3,UnityEngine.Vector3)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Jundroo.SimplePlanes.ModTools.Events.MapLocationChangedEventArgs"/> class.
+            </summary>
+            <param name="locationName">Name of the location.</param>
+            <param name="initialVelocity">The initial velocity.</param>
+            <param name="position">The position.</param>
+            <param name="rotation">The rotation.</param>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Events.MapLocationChangedEventArgs.InitialVelocity">
+            <summary>
+            Gets the initial velocity.
+            </summary>
+            <value>
+            The initial velocity.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Events.MapLocationChangedEventArgs.LocationName">
+            <summary>
+            Gets the name of the new location.
+            </summary>
+            <value>
+            The name of the new location.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Events.MapLocationChangedEventArgs.Position">
+            <summary>
+            Gets the new position.
+            </summary>
+            <value>
+            The new position.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Events.MapLocationChangedEventArgs.Rotation">
+            <summary>
+            Gets the new rotation.
+            </summary>
+            <value>
+            The new rotation.
+            </value>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.Events.PauseChangedEventArgs">
+            <summary>
+            The event args for events that indicate a change in the pause state of the application.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Events.PauseChangedEventArgs.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Jundroo.SimplePlanes.ModTools.Events.PauseChangedEventArgs"/> class.
+            </summary>
+            <param name="isPaused">If set to <c>true</c> the game is paused.</param>
+            <param name="isUserInitiated">If set to <c>true</c> the current pause was user initiated.</param>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Events.PauseChangedEventArgs.IsPaused">
+            <summary>
+            Gets a value indicating whether the game is paused.
+            </summary>
+            <value>
+              <c>true</c> if the game is paused; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Events.PauseChangedEventArgs.IsUserInitiated">
+            <summary>
+            Gets a value indicating whether the current pause was initiated by the user.
+            </summary>
+            <value>
+            <c>true</c> if the current pause was initiated by the user; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.Events.SeaLevelChangedEventArgs">
+            <summary>
+            The event arguments used for the event that fires when the sea level is changed.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Events.SeaLevelChangedEventArgs.#ctor(System.Nullable{System.Single},System.Nullable{System.Single})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Jundroo.SimplePlanes.ModTools.Events.SeaLevelChangedEventArgs"/> class.
+            </summary>
+            <param name="oldSeaLevel">The old sea level.</param>
+            <param name="newSeaLevel">The new sea level.</param>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Events.SeaLevelChangedEventArgs.NewSeaLevel">
+            <summary>
+            Gets the new sea level value on the y-axis.
+            </summary>
+            <value>
+            The new sea level value on the y-axis.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Events.SeaLevelChangedEventArgs.OldSeaLevel">
+            <summary>
+            Gets the old sea level value on the y-axis.
+            </summary>
+            <value>
+            The old sea level value on the y-axis.
+            </value>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.WeatherPreset">
+            <summary>
+            An enumeration defining various different weather presets.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.WeatherPreset.Clear">
+            <summary>
+            Clear skies.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.WeatherPreset.FewClouds">
+            <summary>
+            Mostly clear skies with a few clouds.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.WeatherPreset.ScatteredClouds">
+            <summary>
+            Scattered clouds.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.WeatherPreset.BrokenClouds">
+            <summary>
+            Very cloudy, between scattered and overcast.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.WeatherPreset.Overcast">
+            <summary>
+            Overcast sky, heavy cloud coverage.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.WeatherPreset.Stormy">
+            <summary>
+            Many dark clouds, storm-like.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.WeatherPreset.LightFog">
+            <summary>
+            Very foggy, but not as much as heavy fog.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.WeatherPreset.HeavyFog">
+            <summary>
+            Extremely foggy, hard to see.
+            </summary>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.IEnvironmentManager">
+            <summary>
+            A service for interacting with the environment manager.
+            </summary>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IEnvironmentManager.DynamicWeatherEnabled">
+            <summary>
+            Gets or sets a value indicating whether dynamic weather is enabled.
+            </summary>
+            <value>
+            <c>true</c> if dynamic weather is enabled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IEnvironmentManager.Enabled">
+            <summary>
+            Gets or sets a value indicating whether the default environment is enabled (sky, weather, etc).
+            </summary>
+            <value>
+              <c>true</c> if the default environment is enabled (sky, weather, etc); otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IEnvironmentManager.LengthOfDay">
+            <summary>
+            Gets or sets the length of a single day in minutes.
+            </summary>
+            <value>
+            The length of a single day in minutes.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IEnvironmentManager.PauseTimeProgression">
+            <summary>
+            Gets or sets a value indicating whether time progression is paused.
+            </summary>
+            <value>
+            <c>true</c> if time progression is paused; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IEnvironmentManager.TimeOfDay">
+            <summary>
+            Gets or sets the time of day in hours.
+            </summary>
+            <value>
+            The time of day in hours.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IEnvironmentManager.UserSettingsEnabled">
+            <summary>
+            Gets or sets a value indicating whether user modification of environment settings is enabled.
+            </summary>
+            <value>
+              <c>true</c> if user modification of environment settings is enabled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.IEnvironmentManager.RestoreDefaultSettings">
+            <summary>
+            Restores the default settings.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.IEnvironmentManager.UpdateTimeOfDay(System.Single,System.Single,System.Boolean,System.Boolean)">
+            <summary>
+            Updates the time of day.
+            </summary>
+            <param name="timeOfDay">The new time of day in hours.</param>
+            <param name="transitionTime">The transition time (in seconds) for the time change.</param>
+            <param name="allowReverseTimeTransition">If set to <c>true</c> allow transitions to occur in reverse time.</param>
+            <param name="ignorePause">If set to <c>true</c>, the update will occur event when paused.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.IEnvironmentManager.UpdateWeather(Jundroo.SimplePlanes.ModTools.WeatherPreset,System.Single,System.Boolean)">
+            <summary>
+            Updates the weather settings based on the specified weather preset.
+            </summary>
+            <param name="preset">The weather preset to apply.</param>
+            <param name="transitionTime">The transition time (in seconds) for the changes.</param>
+            <param name="ignorePause">If set to <c>true</c>, the update will occur event when paused.</param>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.IGameCamera">
+            <summary>
+            A service for interacting with the current game camera.
+            </summary>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IGameCamera.CameraTarget">
+            <summary>
+            Gets or sets the camera target.
+            </summary>
+            <value>
+            The camera target.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IGameCamera.CameraPosition">
+            <summary>
+            Gets or sets the camera position.
+            </summary>
+            <value>
+            The camera position.
+            </value>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.IGameCamera.SetMainCameraEnabled(System.Boolean)">
+            <summary>
+            Enables or disables the main SimplePlanes camera.  Use this when you want to use your own cameras.
+            </summary>
+            <param name="enabled">if set to <c>true</c> [enabled].</param>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.IGameState">
+            <summary>
+            A service for interacting with the current game state.
+            </summary>
+        </member>
+        <member name="E:Jundroo.SimplePlanes.ModTools.IGameState.AircraftViewChanged">
+            <summary>
+            Occurs when the aircraft view is changed.
+            </summary>
+        </member>
+        <member name="E:Jundroo.SimplePlanes.ModTools.IGameState.DesignerEntered">
+            <summary>
+            Occurs when the designer is entered.
+            </summary>
+        </member>
+        <member name="E:Jundroo.SimplePlanes.ModTools.IGameState.DesignerExited">
+            <summary>
+            Occurs when the designer is exited.
+            </summary>
+        </member>
+        <member name="E:Jundroo.SimplePlanes.ModTools.IGameState.LevelEntered">
+            <summary>
+            Occurs when a level is entered.
+            </summary>
+        </member>
+        <member name="E:Jundroo.SimplePlanes.ModTools.IGameState.LevelExited">
+            <summary>
+            Occurs when a level is exited.
+            </summary>
+        </member>
+        <member name="E:Jundroo.SimplePlanes.ModTools.IGameState.LevelRestarted">
+            <summary>
+            Occurs when the current level is restarted.
+            </summary>
+        </member>
+        <member name="E:Jundroo.SimplePlanes.ModTools.IGameState.MapEntered">
+            <summary>
+            Occurs when a map is entered.
+            </summary>
+        </member>
+        <member name="E:Jundroo.SimplePlanes.ModTools.IGameState.MapExited">
+            <summary>
+            Occurs when a map is exited.
+            </summary>
+        </member>
+        <member name="E:Jundroo.SimplePlanes.ModTools.IGameState.MapLocationChanged">
+            <summary>
+            Occurs when the map starting location has changed.
+            </summary>
+        </member>
+        <member name="E:Jundroo.SimplePlanes.ModTools.IGameState.PauseChanged">
+            <summary>
+            Occurs when a change has occurred in the pause state of the application.
+            </summary>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IGameState.CurrentLevelName">
+            <summary>
+            Gets the name of the current level.
+            </summary>
+            <value>
+            The name of the current level.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IGameState.CurrentMapName">
+            <summary>
+            Gets the name of the current map.
+            </summary>
+            <value>
+            The name of the current map.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IGameState.IsInDesigner">
+            <summary>
+            Gets a value indicating whether the user is currently in designer.
+            </summary>
+            <value>
+            <c>true</c> if the user is currently in designer; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IGameState.IsInLevel">
+            <summary>
+            Gets a value indicating whether the user is currently in a level.
+            </summary>
+            <value>
+            <c>true</c> if the user is currently in a level; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IGameState.IsPaused">
+            <summary>
+            Gets a value indicating whether the game is paused.
+            </summary>
+            <value>
+              <c>true</c> if the game is paused; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.IGameState.RequestPauseChange(System.Boolean,System.Boolean)">
+            <summary>
+            Requests a change in the pause state of the application.
+            </summary>
+            <param name="paused">
+            <c>true</c> if requesting that the application be paused. 
+            <c>false</c> if requesting that the application be un-paused.</param>
+            <param name="userInitiated"><c>true</c> if this requested change in the pause state has been initiated by the user.</param>
+            <returns>The new pause state of the game.</returns>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.IGameWorld">
+            <summary>
+            A service for interacting with the game world.
+            </summary>
+        </member>
+        <member name="E:Jundroo.SimplePlanes.ModTools.IGameWorld.FloatingOriginChanged">
+            <summary>
+            Occurs when the floating origin changes.
+            </summary>
+        </member>
+        <member name="E:Jundroo.SimplePlanes.ModTools.IGameWorld.SeaLevelChanged">
+            <summary>
+            Occurs when the sea level changes.
+            </summary>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IGameWorld.FloatingOriginOffset">
+            <summary>
+            Gets the floating origin offset which represents the current origin's position relative to the true origin.
+            </summary>
+            <value>
+            The floating origin offset which represents the current origin's position relative to the true origin.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IGameWorld.FloatingOriginSeaLevel">
+            <summary>
+            Gets the current world height of the sea level in world coordinates taking floating origin into account.
+            </summary>
+            <value>
+            The current world height of the sea level in world coordinates taking floating origin into account.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IGameWorld.MassScale">
+            <summary>
+            Gets the scale factor applied to the mass of parts in the game.
+            If a part weighs 1000 pounds and the scale factor is 0.01, then the mass of the associated rigid body will be 10 pounds.
+            </summary>
+            <value>
+            The scale factor applied to the mass of parts in the game.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IGameWorld.SeaLevel">
+            <summary>
+            Gets or sets the sea level on the y-axis.
+            </summary>
+            <value>
+            The sea level on the y-axis.
+            </value>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.IGameWorld.CreateExplosion(UnityEngine.Vector3,System.Single,System.Int32)">
+            <summary>
+            Creates an explosion in the game world which only impacts aircraft parts.
+            </summary>
+            <param name="position">The position of the explosion.</param>
+            <param name="magnitude">The magnitude.</param>
+            <param name="explosionCascadeCount">The number of explosions that have cascaded to create this explosion.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.IGameWorld.ShowStatusMessage(System.String,System.Single)">
+            <summary>
+            Shows the message using the in-game message system.
+            </summary>
+            <param name="message">The message to show.</param>
+            <param name="time">The time to display the message.</param>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.IgnoreFloatingOrigin">
+            <summary>
+            This component tells the system to ignore the attached game object when the floating origin is repositioned.
+            By default, the system will reposition root level objects when the world's origin needs to be shifted.
+            If this component is attached to a root level object, the system will skip it when shifting the world for the floating origin.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.IgnoreFloatingOrigin.RepositionChildren">
+            <summary>
+            If this is set to <c>true</c> and the script is attached to a root level object,
+            the root object will not be moved and its child objects will be moved instead.
+            </summary>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.IPlayerAircraft">
+            <summary>
+            A service for interacting with the player's aircraft.
+            </summary>
+        </member>
+        <member name="E:Jundroo.SimplePlanes.ModTools.IPlayerAircraft.AircraftDamaged">
+            <summary>
+            Occurs when the player's aircraft is damaged.
+            </summary>
+        </member>
+        <member name="E:Jundroo.SimplePlanes.ModTools.IPlayerAircraft.AircraftStructureChanged">
+            <summary>
+            Occurs when the player's aircraft structure has changed.
+            </summary>
+        </member>
+        <member name="E:Jundroo.SimplePlanes.ModTools.IPlayerAircraft.PartEnteredWater">
+            <summary>
+            Occurs when an aircraft part enters the water.
+            </summary>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IPlayerAircraft.Airspeed">
+            <summary>
+            Gets or sets the current airspeed of the aircraft. (meters per second)
+            </summary>
+            <value>
+            The current airspeed of the aircraft. (meters per second)
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IPlayerAircraft.Altitude">
+            <summary>
+            Gets or sets the current altitude of the aircraft. (meters)
+            </summary>
+            <value>
+            The current altitude of the aircraft. (meters)
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IPlayerAircraft.Controls">
+            <summary>
+            Gets the controls for the player's aircraft.
+            </summary>
+            <value>
+            The controls for the player's aircraft.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IPlayerAircraft.Fuel">
+            <summary>
+            Gets or sets the current fuel for the aircraft. (liters)
+            </summary>
+            <value>
+            The current fuel for the aircraft. (liters)
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IPlayerAircraft.FuelCapacity">
+            <summary>
+            Gets the fuel capacity for the aircraft. (liters)
+            </summary>
+            <value>
+            The fuel capacity for the aircraft. (liters)
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IPlayerAircraft.MainCockpitPosition">
+            <summary>
+            Gets or sets the position of the aircraft's main cockpit in the game world.
+            </summary>
+            <value>
+            The position of the aircraft's main cockpit in the game world.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IPlayerAircraft.MainCockpitRotation">
+            <summary>
+            Gets or sets the rotation of the aircraft's main cockpit in the game world.
+            </summary>
+            <value>
+            The rotation of the aircraft's main cockpit in the game world.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IPlayerAircraft.Parts">
+            <summary>
+            Gets all parts' GameObjects in the current player-controlled aircraft.
+            </summary>
+            <value>
+            All parts's GameObjects in the current player-controlled aircraft.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IPlayerAircraft.Velocity">
+            <summary>
+            Gets or sets the current velocity of the aircraft. (meters per second)
+            </summary>
+            <value>
+            The current velocity of the aircraft. (meters per second)
+            </value>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.PlayerAircraftControlTypes">
+            <summary>
+            An enumeration defining the default types of aircraft controls.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.PlayerAircraftControlTypes.None">
+            <summary>
+            A value indicating no control types.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.PlayerAircraftControlTypes.ActivationGroups">
+            <summary>
+            The activation group controls.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.PlayerAircraftControlTypes.Brake">
+            <summary>
+            The brake control.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.PlayerAircraftControlTypes.LandingGearUpDown">
+            <summary>
+            The landing gear up/down control.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.PlayerAircraftControlTypes.Pitch">
+            <summary>
+            The pitch control.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.PlayerAircraftControlTypes.ToggleActivationPanel">
+            <summary>
+            The toggle activation panel input.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.PlayerAircraftControlTypes.Roll">
+            <summary>
+            The roll control.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.PlayerAircraftControlTypes.Throttle">
+            <summary>
+            The throttle control.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.PlayerAircraftControlTypes.Vtol">
+            <summary>
+            The VTOL control.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.PlayerAircraftControlTypes.Yaw">
+            <summary>
+            The yaw control.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.PlayerAircraftControlTypes.FireGuns">
+            <summary>
+            The fire guns control.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.PlayerAircraftControlTypes.FireWeapons">
+            <summary>
+            The fire weapons control.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.PlayerAircraftControlTypes.NextPrevWeapon">
+            <summary>
+            The next and previous weapon controls.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.PlayerAircraftControlTypes.NextPrevTarget">
+            <summary>
+            The next and previous target controls.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.PlayerAircraftControlTypes.CycleTargetingMode">
+            <summary>
+            The cycle through targeting modes.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.PlayerAircraftControlTypes.Pause">
+            <summary>
+            The pause input control.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.PlayerAircraftControlTypes.ChangeView">
+            <summary>
+            The change view input control.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.PlayerAircraftControlTypes.ToggleMinimap">
+            <summary>
+            The toggle min-map input control.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.PlayerAircraftControlTypes.DesignerShortcuts">
+            <summary>
+            The designer shortcut controls.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.PlayerAircraftControlTypes.Miscellaneous">
+            <summary>
+            Miscellaneous controls.
+            </summary>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.IPlayerAircraftControls">
+            <summary>
+            A service for interacting with the player's aircraft controls.
+            </summary>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IPlayerAircraftControls.Brake">
+            <summary>
+            Gets or sets the brake value (0.0 to 1.0).
+            </summary>
+            <value>
+            The brake value (0.0 to 1.0).
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IPlayerAircraftControls.FireGuns">
+            <summary>
+            Gets or sets a value indicating whether the fire guns control is activated.
+            </summary>
+            <value>
+              <c>true</c> if fire guns control is activated; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IPlayerAircraftControls.FireWeapons">
+            <summary>
+            Gets or sets a value indicating whether the fire weapons control is activated.
+            </summary>
+            <value>
+              <c>true</c> if fire weapons control is activated; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IPlayerAircraftControls.LandingGearDown">
+            <summary>
+            Gets or sets a value indicating whether the landing gear down control is activated.
+            </summary>
+            <value>
+              <c>true</c> if landing gear down control is activated; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IPlayerAircraftControls.Pitch">
+            <summary>
+            Gets or sets the pitch value (-1.0 to 1.0).
+            </summary>
+            <value>
+            The pitch value (-1.0 to 1.0).
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IPlayerAircraftControls.Roll">
+            <summary>
+            Gets or sets the roll value (-1.0 to 1.0).
+            </summary>
+            <value>
+            The roll value (-1.0 to 1.0).
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IPlayerAircraftControls.Throttle">
+            <summary>
+            Gets or sets the throttle value (0.0 to 1.0).
+            </summary>
+            <value>
+            The throttle value (0.0 to 1.0).
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IPlayerAircraftControls.ThrottleIncrement">
+            <summary>
+            Gets or sets the throttle increment value (-1.0 to 1.0).
+            </summary>
+            <value>
+            The throttle increment value (-1.0 to 1.0).
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IPlayerAircraftControls.Vtol">
+            <summary>
+            Gets or sets the VTOL value (-1.0 to 1.0).
+            </summary>
+            <value>
+            The VTOL value (-1.0 to 1.0).
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IPlayerAircraftControls.Yaw">
+            <summary>
+            Gets or sets the yaw value (-1.0 to 1.0).
+            </summary>
+            <value>
+            The yaw value (-1.0 to 1.0).
+            </value>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.IPlayerAircraftControls.DisableAllDefaultControls">
+            <summary>
+            Disables all default controls.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.IPlayerAircraftControls.DisableDefaultControls(Jundroo.SimplePlanes.ModTools.PlayerAircraftControlTypes)">
+            <summary>
+            Disables the specified default controls.
+            </summary>
+            <param name="controlTypes">The control types to disable.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.IPlayerAircraftControls.EnableAllDefaultControls">
+            <summary>
+            Enables all default controls.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.IPlayerAircraftControls.EnableDefaultControls(Jundroo.SimplePlanes.ModTools.PlayerAircraftControlTypes)">
+            <summary>
+            Enables the specified default controls.
+            </summary>
+            <param name="controlTypes">The control types to enable.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.IPlayerAircraftControls.GetActivationGroupState(System.Int32)">
+            <summary>
+            Gets the state of the activation group.
+            </summary>
+            <param name="groupNumber">The group number.</param>
+            <returns><c>true</c> if the activation group is enabled, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.IPlayerAircraftControls.GetEnabledDefaultControls">
+            <summary>
+            Gets the flags indicating the currently enabled default controls.
+            </summary>
+            <returns>The enumeration flags representing the currently enabled default controls.</returns>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.IPlayerAircraftControls.ToggleActivationGroup(System.Int32)">
+            <summary>
+            Toggles the activation group.
+            </summary>
+            <param name="groupNumber">The group number to toggle.</param>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.IProximityLoadedObject">
+            <summary>
+            An interface for a placeholder that loads an object based on the proximity to the player.
+            </summary>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IProximityLoadedObject.AsynchronousLoadDistanceSquared">
+            <summary>
+            Gets the squared distance which, if the player is within, the object will be asynchronously loaded.
+            </summary>
+            <value>
+            The squared distance which, if the player is within, the object will be asynchronously loaded.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IProximityLoadedObject.IsEnabled">
+            <summary>
+            Gets a value indicating whether this instance is enabled.
+            </summary>
+            <value>
+            <c>true</c> if this instance is enabled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IProximityLoadedObject.Name">
+            <summary>
+            Gets the name of the object.
+            </summary>
+            <value>
+            The name of the object.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IProximityLoadedObject.Position">
+            <summary>
+            Gets the position of the object when it is loaded.
+            </summary>
+            <value>
+            The position of the object when it is loaded.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IProximityLoadedObject.Rotation">
+            <summary>
+            Gets the rotation of the object when it is loaded.
+            </summary>
+            <value>
+            The rotation of the object when it is loaded.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IProximityLoadedObject.SupportsAsynchronousLoading">
+            <summary>
+            Gets a value indicating whether this object supports asynchronous loading.
+            </summary>
+            <value>
+            <c>true</c> if this object supports asynchronous loading; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IProximityLoadedObject.SynchronousLoadDistanceSquared">
+            <summary>
+            Gets the squared distance which, if the player is within, the object will be synchronously loaded if an asynchronous load is not already taking place.
+            </summary>
+            <value>
+            The squared distance which, if the player is within, the object will be synchronously loaded if an asynchronous load is not already taking place.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IProximityLoadedObject.Terrains">
+            <summary>
+            Gets the terrains in this proximity loaded object.
+            </summary>
+            <value>
+            The terrains in this proximity loaded object.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IProximityLoadedObject.UnloadDistanceSquared">
+            <summary>
+            Gets the squared distance which, if the player is at or beyond, the object will be unloaded.
+            </summary>
+            <value>
+            The squared distance which, if the player is at or beyond, the object will be unloaded.
+            </value>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.IProximityLoadedObject.LoadAsynchronously">
+            <summary>
+            Loads the object asynchronously.
+            </summary>
+            <returns>The asynchronous load request.</returns>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.IProximityLoadedObject.LoadSynchronously">
+            <summary>
+            Loads the object synchronously.
+            </summary>
+            <returns>The loaded object.</returns>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.IProximityLoadedObject.OnLoadCancelled">
+            <summary>
+            Called when the loading of an object is cancelled.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.IProximityLoadedObject.OnObjectLoaded(UnityEngine.GameObject)">
+            <summary>
+            Called when the object has been loaded.
+            </summary>
+            <param name="obj">The object that was loaded.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.IProximityLoadedObject.OnObjectLoading(System.Boolean)">
+            <summary>
+            Called when the object is loading.
+            </summary>
+            <param name="asynchronous">A value indicating whether or not the game object is being loaded asynchronously.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.IProximityLoadedObject.OnObjectUnloaded">
+            <summary>
+            Called when the object has been unloaded.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.IProximityLoadedObject.OnObjectUnloading(UnityEngine.GameObject)">
+            <summary>
+            Called right before the object is unloaded.
+            </summary>
+            <param name="obj">The object being unloaded.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.IProximityLoadedObject.UnloadObject(UnityEngine.GameObject)">
+            <summary>
+            Unloads the object.
+            </summary>
+            <param name="obj">The object to unload.</param>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.IProximityLoader">
+            <summary>
+            An interface for the proximity loader, which handles the loading of game objects based on proximity to the player.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.IProximityLoader.Register(Jundroo.SimplePlanes.ModTools.IProximityLoadedObject)">
+            <summary>
+            Registers the specified object.
+            </summary>
+            <param name="obj">The object to register.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.IProximityLoader.Register(Jundroo.SimplePlanes.ModTools.ProximityLoadedModObjectBase)">
+            <summary>
+            Registers the specified object.
+            </summary>
+            <param name="obj">The object to register.</param>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.ISimplePlanesModServiceProvider">
+            <summary>
+            A service provider interface for mods to interact with SimplePlanes.
+            </summary>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.ISimplePlanesModServiceProvider.DevConsole">
+            <summary>
+            Gets the service for interacting with the dev console.
+            </summary>
+            <value>
+            The service for interacting with the dev console.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.ISimplePlanesModServiceProvider.EnvironmentManager">
+            <summary>
+            Gets a service for interacting with the game world environment.
+            </summary>
+            <value>
+            A service for interacting with the game world environment.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.ISimplePlanesModServiceProvider.GameCamera">
+            <summary>
+            Gets a service for interacting with the game camera
+            </summary>
+            <value>
+            The service for interacting with the game camera
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.ISimplePlanesModServiceProvider.GameState">
+            <summary>
+            Gets a service for interacting with the current game state.
+            </summary>
+            <value>
+            A service for interacting with the current game state.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.ISimplePlanesModServiceProvider.GameWorld">
+            <summary>
+            Gets a service for interacting with the game world.
+            </summary>
+            <value>
+            A service for interacting with the game world.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.ISimplePlanesModServiceProvider.PlayerAircraft">
+            <summary>
+            Gets a service for interacting with the player's aircraft.
+            </summary>
+            <value>
+            A service for interacting with the player's aircraft.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.ISimplePlanesModServiceProvider.UserInterface">
+            <summary>
+            Gets a service for interacting with the user interface.
+            </summary>
+            <value>
+            A service for interacting with the user interface.
+            </value>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.FlightUIElementType">
+            <summary>
+            An enumeration defining the various in flight UI elements.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.FlightUIElementType.AnalogControls">
+            <summary>
+            The analog controls.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.FlightUIElementType.InstrumentPanel">
+            <summary>
+            The instrument panel.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.FlightUIElementType.VtolControls">
+            <summary>
+            The VTOL control slider.
+            </summary>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.IUserInterface">
+            <summary>
+            A service for interacting with the user interface.
+            </summary>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IUserInterface.EventSystem">
+            <summary>
+            Gets the event system for the current scene.
+            </summary>
+            <value>
+            The event system for the current scene.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IUserInterface.UIRootObject">
+            <summary>
+            Gets the root game object for all UI elements.
+            </summary>
+            <value>
+            The root game object for all UI elements.
+            </value>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.IUserInterface.HideUIElement(Jundroo.SimplePlanes.ModTools.FlightUIElementType)">
+            <summary>
+            Hides the specified UI element (if shown).
+            </summary>
+            <param name="elementType">Type of the element to hide.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.IUserInterface.ShowUIElement(Jundroo.SimplePlanes.ModTools.FlightUIElementType)">
+            <summary>
+            Shows the specified UI element (if hidden).
+            </summary>
+            <param name="elementType">Type of the element to show.</param>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.Layers">
+            <summary>
+            Layers used in the game.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Layers.AircraftCollisionOnly">
+            <summary>
+            Layer that can only collide with the aircraft.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Layers.AircraftCollisionNone">
+            <summary>
+            Layer that cannot collide with the aircraft.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Layers.AircraftLayer">
+            <summary>
+            The aircraft layer.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Layers.AttachPointLayerMaskAll">
+            <summary>
+            The layer mask that includes all attach point layers.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Layers.AttachPointLayerStart">
+            <summary>
+            The attach point layer.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Layers.AttachPointLayerWingSurface">
+            <summary>
+            The attach point layer for a wing surface.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Layers.AttachPointLayerSurface">
+            <summary>
+            The attach point layer for a surface, which shares the same layer as explosions, but this is only used in the
+            designer, where explosions should not occur.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Layers.CarrierDeck">
+            <summary>
+            The carrier deck layer.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Layers.DefaultLayer">
+            <summary>
+            The default layer.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Layers.ExplosionLayer">
+            <summary>
+            The explosion layer.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Layers.TemporaryLayer">
+            <summary>
+            Game objects can be moved into the temporary layer to ensure they are isolated from any other game objects.
+            Care must be taken to ensure the game objects are quickly moved out of the layer when they are finished being processed.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Layers.TerrainLayer">
+            <summary>
+            The terrain layer.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Layers.WaterLayer">
+            <summary>
+            The water layer.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Layers.LayerNames">
+            <summary>
+            The map of layer values and their associated layer names.
+            </summary>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.IInternalLevelServices">
+            <summary>
+            An interface providing services mod levels can call on internal levels.
+            </summary>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IInternalLevelServices.ElapsedTime">
+            <summary>
+            Gets the elapsed time of the timer in seconds.
+            </summary>
+            <value>
+            The elapsed time of the timer in seconds.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IInternalLevelServices.LevelTime">
+            <summary>
+            Gets the time (in seconds) that the user has spent in the level (while not paused).
+            </summary>
+            <value>
+            The time (in seconds) that the user has spent in the level (while not paused).
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IInternalLevelServices.Map">
+            <summary>
+            Gets the current map.
+            This will be <c>null</c> if the current map is a built in map and not part of a mod.
+            </summary>
+            <value>
+            The current map.
+            This will be <c>null</c> if the current map is a built in map and not part of a mod.
+            </value>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.IInternalLevelServices.EndLevel(System.Boolean,System.String,System.Single)">
+            <summary>
+            Displays the end level dialog.
+            </summary>
+            <param name="playerWon"><c>true</c> if the player won the level, <c>false</c> otherwise.</param>
+            <param name="messageText">The message text to display to the user.</param>
+            <param name="score">The user's score for the level.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.IInternalLevelServices.ExitLevel">
+            <summary>
+            Immediately exists the level and returns to the designer.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.IInternalLevelServices.PauseTimer(System.Boolean)">
+            <summary>
+            Changes the pause state of the timer to the specified value.
+            </summary>
+            <param name="pause">
+            If set to <c>true</c>, the timer will be paused.
+            If set to <c>false</c>, the timer will not be paused.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.IInternalLevelServices.ResetTimer">
+            <summary>
+            Resets the timer.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.IInternalLevelServices.ShowMessage(System.String,System.Single)">
+            <summary>
+            Shows the specified message to the player.
+            </summary>
+            <param name="message">The message to show.</param>
+            <param name="lifetimeInSeconds">The lifetime of the message in seconds.</param>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.IModLevelServices">
+            <summary>
+            An interface providing services hosted by a mod level to be called by the game internals.
+            </summary>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IModLevelServices.Description">
+            <summary>
+            Gets the description of the level.
+            </summary>
+            <value>
+            The description of the level.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IModLevelServices.IconPath">
+            <summary>
+            Gets the icon path for the level.
+            </summary>
+            <value>
+            The icon path for the level.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IModLevelServices.LevelName">
+            <summary>
+            Gets the name of the level.
+            </summary>
+            <value>
+            The name of the level.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IModLevelServices.MapName">
+            <summary>
+            Gets the name of the map.
+            </summary>
+            <value>
+            The name of the map.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IModLevelServices.StartLocation">
+            <summary>
+            Gets the start location for the level.
+            </summary>
+            <value>
+            The start location for the level.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IModLevelServices.StartTimerWithThrottle">
+            <summary>
+            Gets a value indicating whether the timer should be started with the throttle.
+            </summary>
+            <value>
+            <c>true</c> if the timer should be started with the throttle; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IModLevelServices.TimerCountdown">
+            <summary>
+            Gets the value from which the timer should count down from to zero.
+            </summary>
+            <value>
+            The value from which the timer should count down from to zero.
+            If not set (0.0f), the timer will count up from zero.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IModLevelServices.TimerEnabled">
+            <summary>
+            Gets a value indicating whether the timer is enabled.
+            </summary>
+            <value>
+              <c>true</c> if the timer is enabled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.IModLevelServices.Awake">
+            <summary>
+            Awake is called when the level is being loaded.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.IModLevelServices.FixedUpdate">
+            <summary>
+            This function is called every fixed frame rate frame.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.IModLevelServices.FormatScore(System.Single)">
+            <summary>
+            Creates the formatted score string to be displayed to the user when completing a level.
+            </summary>
+            <param name="score">The user's score.</param>
+            <returns>The string to be displayed to the user.</returns>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.IModLevelServices.Initialize(Jundroo.SimplePlanes.ModTools.IInternalLevelServices)">
+            <summary>
+            Initializes the level.
+            </summary>
+            <param name="levelServices">The internal level services.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.IModLevelServices.OnLevelComplete">
+            <summary>
+            Called when the level is complete.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.IModLevelServices.OnPartEnterWater">
+            <summary>
+            Called when one of a player's aircraft parts enters the water.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.IModLevelServices.Start">
+            <summary>
+            Start is called on the frame after the level is loaded before any update methods are called.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.IModLevelServices.Update">
+            <summary>
+            Update is called every frame.
+            </summary>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.Level">
+            <summary>
+            The base class for all mod levels.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Level._levelServices">
+            <summary>
+            The _level services
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Level.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Jundroo.SimplePlanes.ModTools.Level"/> class.
+            </summary>
+            <param name="levelName">The name of the level.</param>
+            <param name="mapName">The name of the map.
+            This must exactly match the name of a default map or map in the current mod in order for it to be loaded.</param>
+            <param name="levelDescription">The level description.</param>
+            <param name="levelIconPath">[OBSOLETE - Level icons are no longer used] The optional level icon path.
+            This must be an asset path in the current mod. (Example: "Assets/Textures/MyLevelIcon.png")</param>
+            <exception cref="T:System.ArgumentException">Thrown if the level name, map name, or level description are <c>null</c> or empty.</exception>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Level.Description">
+            <summary>
+            Gets the description of the level.
+            </summary>
+            <value>
+            The description of the level.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Level.IconPath">
+            <summary>
+            Gets the icon path for the level.
+            </summary>
+            <value>
+            The icon path for the level.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Level.Jundroo#SimplePlanes#ModTools#IInternalLevelServices#ElapsedTime">
+            <summary>
+            Gets the elapsed time of the timer in seconds.
+            </summary>
+            <value>
+            The elapsed time of the timer in seconds.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Level.Jundroo#SimplePlanes#ModTools#IInternalLevelServices#LevelTime">
+            <summary>
+            Gets the time (in seconds) that the user has spent in the level (while not paused).
+            </summary>
+            <value>
+            The time (in seconds) that the user has spent in the level (while not paused).
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Level.Jundroo#SimplePlanes#ModTools#IInternalLevelServices#Map">
+            <summary>
+            Gets the current map.
+            This will be <c>null</c> if the current map is a built in map and not part of a mod.
+            </summary>
+            <value>
+            The current map.
+            This will be <c>null</c> if the current map is a built in map and not part of a mod.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Level.Jundroo#SimplePlanes#ModTools#IModLevelServices#StartLocation">
+            <summary>
+            Gets the start location for the level.
+            </summary>
+            <value>
+            The start location for the level.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Level.Jundroo#SimplePlanes#ModTools#IModLevelServices#StartTimerWithThrottle">
+            <summary>
+            Gets a value indicating whether the timer should be started with the throttle.
+            </summary>
+            <value>
+            <c>true</c> if the timer should be started with the throttle; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Level.Jundroo#SimplePlanes#ModTools#IModLevelServices#TimerCountdown">
+            <summary>
+            Gets the value from which the timer should count down from to zero.
+            </summary>
+            <value>
+            The value from which the timer should count down from to zero.
+            If not set (0.0f), the timer will count up from zero.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Level.Jundroo#SimplePlanes#ModTools#IModLevelServices#TimerEnabled">
+            <summary>
+            Gets a value indicating whether the timer is enabled.
+            </summary>
+            <value>
+              <c>true</c> if the timer is enabled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Level.LevelName">
+            <summary>
+            Gets the name of the level.
+            </summary>
+            <value>
+            The name of the level.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Level.MapName">
+            <summary>
+            Gets the name of the map.
+            </summary>
+            <value>
+            The name of the map.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Level.ElapsedTime">
+            <summary>
+            Gets the elapsed time of the timer in seconds.
+            </summary>
+            <value>
+            The elapsed time of the timer in seconds.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Level.LevelTime">
+            <summary>
+            Gets the time (in seconds) that the user has spent in the level (while not paused).
+            </summary>
+            <value>
+            The time (in seconds) that the user has spent in the level (while not paused).
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Level.Map">
+            <summary>
+            Gets the current map.
+            This will be <c>null</c> if the current map is a built in map and not part of a mod.
+            </summary>
+            <value>
+            The current map.
+            This will be <c>null</c> if the current map is a built in map and not part of a mod.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Level.StartLocation">
+            <summary>
+            Gets the start location for the level.
+            </summary>
+            <value>
+            The start location for the level.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Level.StartTimerWithThrottle">
+            <summary>
+            Gets a value indicating whether the timer should be started with the throttle.
+            </summary>
+            <value>
+            <c>true</c> if the timer should be started with the throttle; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Level.TimerCountdown">
+            <summary>
+            Gets the value from which the timer should count down from to zero.
+            </summary>
+            <value>
+            The value from which the timer should count down from to zero.
+            If not set (0.0f), the timer will count up from zero.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Level.TimerEnabled">
+            <summary>
+            Gets a value indicating whether the timer is enabled.
+            </summary>
+            <value>
+              <c>true</c> if the timer is enabled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Level.Jundroo#SimplePlanes#ModTools#IInternalLevelServices#EndLevel(System.Boolean,System.String,System.Single)">
+            <summary>
+            Displays the end level dialog.
+            </summary>
+            <param name="playerWon"><c>true</c> if the player won the level, <c>false</c> otherwise.</param>
+            <param name="messageText">The message text to display to the user.</param>
+            <param name="score">The user's score for the level.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Level.Jundroo#SimplePlanes#ModTools#IInternalLevelServices#ExitLevel">
+            <summary>
+            Immediately exists the level and returns to the designer.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Level.Jundroo#SimplePlanes#ModTools#IInternalLevelServices#PauseTimer(System.Boolean)">
+            <summary>
+            Changes the pause state of the timer to the specified value.
+            </summary>
+            <param name="pause">If set to <c>true</c>, the timer will be paused.
+            If set to <c>false</c>, the timer will not be paused.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Level.Jundroo#SimplePlanes#ModTools#IInternalLevelServices#ResetTimer">
+            <summary>
+            Resets the timer.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Level.Jundroo#SimplePlanes#ModTools#IInternalLevelServices#ShowMessage(System.String,System.Single)">
+            <summary>
+            Shows the specified message to the player.
+            </summary>
+            <param name="message">The message to show.</param>
+            <param name="lifetimeInSeconds">The lifetime of the message in seconds.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Level.Jundroo#SimplePlanes#ModTools#IModLevelServices#Awake">
+            <summary>
+            Awake is called when the level is being loaded.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Level.Jundroo#SimplePlanes#ModTools#IModLevelServices#FixedUpdate">
+            <summary>
+            This function is called every fixed frame rate frame.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Level.Jundroo#SimplePlanes#ModTools#IModLevelServices#FormatScore(System.Single)">
+            <summary>
+            Creates the formatted score string to be displayed to the user when completing a level.
+            </summary>
+            <param name="score">The user's score.</param>
+            <returns>
+            The string to be displayed to the user.
+            </returns>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Level.Jundroo#SimplePlanes#ModTools#IModLevelServices#Initialize(Jundroo.SimplePlanes.ModTools.IInternalLevelServices)">
+            <summary>
+            Initializes the level.
+            </summary>
+            <param name="levelServices">The internal level services.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Level.Jundroo#SimplePlanes#ModTools#IModLevelServices#OnLevelComplete">
+            <summary>
+            Called when the level is complete.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Level.Jundroo#SimplePlanes#ModTools#IModLevelServices#OnPartEnterWater">
+            <summary>
+            Called when one of a player's aircraft parts enters the water.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Level.Jundroo#SimplePlanes#ModTools#IModLevelServices#Start">
+            <summary>
+            Start is called on the frame after the level is loaded before any update methods are called.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Level.Jundroo#SimplePlanes#ModTools#IModLevelServices#Update">
+            <summary>
+            Update is called every frame.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Level.Awake">
+            <summary>
+            Awake is called when the level is being loaded.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Level.EndLevel(System.Boolean,System.String,System.Single)">
+            <summary>
+            Displays the end level dialog.
+            </summary>
+            <param name="playerWon"><c>true</c> if the player won the level, <c>false</c> otherwise.</param>
+            <param name="messageText">The message text to display to the user.</param>
+            <param name="score">The user's score for the level.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Level.ExitLevel">
+            <summary>
+            Immediately exists the level and returns to the designer.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Level.FixedUpdate">
+            <summary>
+            This function is called every fixed frame rate frame.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Level.FormatScore(System.Single)">
+            <summary>
+            Creates the formatted score string to be displayed to the user when completing a level.
+            </summary>
+            <param name="score">The user's score.</param>
+            <returns>
+            The string to be displayed to the user.
+            </returns>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Level.OnLevelComplete">
+            <summary>
+            Called when the level is complete.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Level.OnPartEnterWater">
+            <summary>
+            Called when one of a player's aircraft parts enters the water.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Level.PauseTimer(System.Boolean)">
+            <summary>
+            Changes the pause state of the timer to the specified value.
+            </summary>
+            <param name="pause">If set to <c>true</c>, the timer will be paused.
+            If set to <c>false</c>, the timer will not be paused.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Level.ResetTimer">
+            <summary>
+            Resets the timer.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Level.ShowMessage(System.String,System.Single)">
+            <summary>
+            Shows the specified message to the player.
+            </summary>
+            <param name="message">The message to show.</param>
+            <param name="lifetimeInSeconds">The lifetime of the message in seconds.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Level.Start">
+            <summary>
+            Start is called on the frame after the level is loaded before any update methods are called.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Level.Update">
+            <summary>
+            Update is called every frame.
+            </summary>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.LevelStartLocation">
+            <summary>
+            An object representing a start location for a level.
+            </summary>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.LevelStartLocation.InitialSpeed">
+            <summary>
+            Gets or sets the initial speed of the player's aircraft. (meters)
+            </summary>
+            <value>
+            The initial speed of the player's aircraft. (meters)
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.LevelStartLocation.InitialThrottle">
+            <summary>
+            Gets or sets the initial throttle of the player's aircraft. (a value between 0 and 1)
+            </summary>
+            <value>
+            The initial throttle of the player's aircraft. (a value between 0 and 1)
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.LevelStartLocation.Position">
+            <summary>
+            Gets or sets the starting position of the player's aircraft.
+            </summary>
+            <value>
+            The starting position of the player's aircraft.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.LevelStartLocation.Rotation">
+            <summary>
+            Gets or sets the starting rotation of the player's aircraft.
+            </summary>
+            <value>
+            The starting rotation of the player's aircraft.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.LevelStartLocation.StartOnGround">
+            <summary>
+            Gets or sets a value indicating whether the player's aircraft should start on the ground.
+            </summary>
+            <value>
+              <c>true</c> if the player's aircraft should start on the ground; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.MapNames">
+            <summary>
+            A class containing the names of all the built-in maps in the game.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.MapNames.Default">
+            <summary>
+            The default map name.
+            </summary>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.MapPlugin">
+            <summary>
+            A component that is added to a game object that should be created whenever a map is loaded.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.MapPlugin.SupportedMapNames">
+            <summary>
+            The list of maps supported by this plugin.
+            </summary>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.MapStartLocation">
+            <summary>
+            A component representing a possible player start location in a map.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.MapStartLocation.InitialSpeed">
+            <summary>
+            The initial speed of the player's aircraft at this start location. (meters per second)
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.MapStartLocation.LocationName">
+            <summary>
+            The location name.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.MapStartLocation.StartOnGround">
+            <summary>
+            A value indicating whether the player's aircraft should start on the ground at this location.
+            </summary>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.Mocks.DevConsoleMock">
+            <summary>
+            A mocked up testing class for the <see cref="T:Jundroo.SimplePlanes.ModTools.DevConsole.IDevConsole"/> service.
+            </summary>
+        </member>
+        <member name="E:Jundroo.SimplePlanes.ModTools.Mocks.DevConsoleMock.Initialized">
+            <summary>
+            Occurs when the dev console is initialized.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.DevConsoleMock.RaiseInitializedEvent(System.EventArgs)">
+            <summary>
+            Raises the initialized event.
+            </summary>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.DevConsoleMock.RegisterArgumentParser``1(Jundroo.SimplePlanes.ModTools.DevConsole.IArgumentParser{``0})">
+            <summary>
+            Registers the argument parser.
+            </summary>
+            <typeparam name="T">The type of arguments supported by the parser.</typeparam>
+            <param name="parser">The parser being registered.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.DevConsoleMock.RegisterCommand(System.String,System.Action)">
+            <summary>
+            Registers the specified command.
+            </summary>
+            <param name="command">The command to register.</param>
+            <param name="commandAction">The command action.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.DevConsoleMock.RegisterCommand``1(System.String,System.Action{``0})">
+            <summary>
+            Registers the specified command.
+            </summary>
+            <typeparam name="T">The type of command argument #1.</typeparam>
+            <param name="command">The command to register.</param>
+            <param name="commandAction">The command action.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.DevConsoleMock.RegisterCommand``2(System.String,System.Action{``0,``1})">
+            <summary>
+            Registers the specified command.
+            </summary>
+            <typeparam name="T1">The type of command argument #1.</typeparam>
+            <typeparam name="T2">The type of command argument #2.</typeparam>
+            <param name="command">The command to register.</param>
+            <param name="commandAction">The command action.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.DevConsoleMock.RegisterCommand``3(System.String,System.Action{``0,``1,``2})">
+            <summary>
+            Registers the specified command.
+            </summary>
+            <typeparam name="T1">The type of command argument #1.</typeparam>
+            <typeparam name="T2">The type of command argument #2.</typeparam>
+            <typeparam name="T3">The type of command argument #3.</typeparam>
+            <param name="command">The command to register.</param>
+            <param name="commandAction">The command action.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.DevConsoleMock.RegisterCommand``4(System.String,System.Action{``0,``1,``2,``3})">
+            <summary>
+            Registers the specified command.
+            </summary>
+            <typeparam name="T1">The type of command argument #1.</typeparam>
+            <typeparam name="T2">The type of command argument #2.</typeparam>
+            <typeparam name="T3">The type of command argument #3.</typeparam>
+            <typeparam name="T4">The type of command argument #4.</typeparam>
+            <param name="command">The command to register.</param>
+            <param name="commandAction">The command action.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.DevConsoleMock.RegisterCommand``5(System.String,System.Func{``0,``1,``2,``3,``4})">
+            <summary>
+            Registers the specified command.
+            </summary>
+            <typeparam name="T1">The type of command argument #1.</typeparam>
+            <typeparam name="T2">The type of command argument #2.</typeparam>
+            <typeparam name="T3">The type of command argument #3.</typeparam>
+            <typeparam name="T4">The type of command argument #4.</typeparam>
+            <typeparam name="TResult">The type of command result.</typeparam>
+            <param name="command">The command to register.</param>
+            <param name="commandAction">The command action.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.DevConsoleMock.RegisterCommand``4(System.String,System.Func{``0,``1,``2,``3})">
+            <summary>
+            Registers the specified command.
+            </summary>
+            <typeparam name="T1">The type of command argument #1.</typeparam>
+            <typeparam name="T2">The type of command argument #2.</typeparam>
+            <typeparam name="T3">The type of command argument #3.</typeparam>
+            <typeparam name="TResult">The type of command result.</typeparam>
+            <param name="command">The command to register.</param>
+            <param name="commandAction">The command action.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.DevConsoleMock.RegisterCommand``3(System.String,System.Func{``0,``1,``2})">
+            <summary>
+            Registers the specified command.
+            </summary>
+            <typeparam name="T1">The type of command argument #1.</typeparam>
+            <typeparam name="T2">The type of command argument #2.</typeparam>
+            <typeparam name="TResult">The type of command result.</typeparam>
+            <param name="command">The command to register.</param>
+            <param name="commandAction">The command action.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.DevConsoleMock.RegisterCommand``2(System.String,System.Func{``0,``1})">
+            <summary>
+            Registers the specified command.
+            </summary>
+            <typeparam name="T">The type of command argument.</typeparam>
+            <typeparam name="TResult">The type of command result.</typeparam>
+            <param name="command">The command to register.</param>
+            <param name="commandAction">The command action.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.DevConsoleMock.RegisterCommand``1(System.String,System.Func{``0})">
+            <summary>
+            Registers the specified command.
+            </summary>
+            <typeparam name="TResult">The type of command result.</typeparam>
+            <param name="command">The command to register.</param>
+            <param name="commandAction">The command action.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.DevConsoleMock.UnregisterCommand(System.String)">
+            <summary>
+            Unregisters the specified command.
+            </summary>
+            <param name="command">The command to unregister.</param>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.Mocks.EnvironmentManagerMock">
+            <summary>
+            A mocked up testing class for the <see cref="T:Jundroo.SimplePlanes.ModTools.IEnvironmentManager"/> service.
+            </summary>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.EnvironmentManagerMock.DynamicWeatherEnabled">
+            <summary>
+            Gets or sets a value indicating whether dynamic weather is enabled.
+            </summary>
+            <value>
+            <c>true</c> if dynamic weather is enabled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.EnvironmentManagerMock.Enabled">
+            <summary>
+            Gets or sets a value indicating whether the default environment is enabled (sky, weather, etc).
+            </summary>
+            <value>
+            <c>true</c> if the default environment is enabled (sky, weather, etc); otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.EnvironmentManagerMock.LengthOfDay">
+            <summary>
+            Gets or sets the length of a single day in minutes.
+            </summary>
+            <value>
+            The length of a single day in minutes.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.EnvironmentManagerMock.PauseTimeProgression">
+            <summary>
+            Gets or sets a value indicating whether time progression is paused.
+            </summary>
+            <value>
+            <c>true</c> if time progression is paused; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.EnvironmentManagerMock.TimeOfDay">
+            <summary>
+            Gets or sets the time of day in hours.
+            </summary>
+            <value>
+            The time of day in hours.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.EnvironmentManagerMock.UserSettingsEnabled">
+            <summary>
+            Gets or sets a value indicating whether user modification of environment settings is enabled.
+            </summary>
+            <value>
+            <c>true</c> if user modification of environment settings is enabled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.EnvironmentManagerMock.RestoreDefaultSettings">
+            <summary>
+            Restores the default settings.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.EnvironmentManagerMock.UpdateTimeOfDay(System.Single,System.Single,System.Boolean,System.Boolean)">
+            <summary>
+            Updates the time of day.
+            </summary>
+            <param name="timeOfDay">The new time of day in hours.</param>
+            <param name="transitionTime">The transition time (in seconds) for the time change.</param>
+            <param name="allowReverseTimeTransition">If set to <c>true</c> allow transitions to occur in reverse time.</param>
+            <param name="ignorePause">If set to <c>true</c>, the update will occur event when paused.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.EnvironmentManagerMock.UpdateWeather(Jundroo.SimplePlanes.ModTools.WeatherPreset,System.Single,System.Boolean)">
+            <summary>
+            Updates the weather settings based on the specified weather preset.
+            </summary>
+            <param name="preset">The weather preset to apply.</param>
+            <param name="transitionTime">The transition time (in seconds) for the changes.</param>
+            <param name="ignorePause">If set to <c>true</c>, the update will occur event when paused.</param>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.Mocks.GameCameraMock">
+            <summary>
+            A mocked up testing class for the <see cref="T:Jundroo.SimplePlanes.ModTools.IGameCamera"/> service.
+            </summary>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.GameCameraMock.CameraTarget">
+            <summary>
+            Gets or sets the camera target.
+            </summary>
+            <value>
+            The camera target.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.GameCameraMock.CameraPosition">
+            <summary>
+            Gets or sets the camera position.
+            </summary>
+            <value>
+            The camera position.
+            </value>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.GameCameraMock.SetMainCameraEnabled(System.Boolean)">
+            <summary>
+            Enables or disables the main SimplePlanes camera.  Use this when you want to use your own cameras.
+            </summary>
+            <param name="enabled">if set to <c>true</c> [enabled].</param>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.Mocks.GameStateMock">
+            <summary>
+            A mocked up testing class for the <see cref="T:Jundroo.SimplePlanes.ModTools.IGameState"/> service.
+            </summary>
+        </member>
+        <member name="E:Jundroo.SimplePlanes.ModTools.Mocks.GameStateMock.AircraftViewChanged">
+            <summary>
+            Occurs when the aircraft view is changed.
+            </summary>
+        </member>
+        <member name="E:Jundroo.SimplePlanes.ModTools.Mocks.GameStateMock.DesignerEntered">
+            <summary>
+            Occurs when the designer is entered.
+            </summary>
+        </member>
+        <member name="E:Jundroo.SimplePlanes.ModTools.Mocks.GameStateMock.DesignerExited">
+            <summary>
+            Occurs when the designer is exited.
+            </summary>
+        </member>
+        <member name="E:Jundroo.SimplePlanes.ModTools.Mocks.GameStateMock.LevelEntered">
+            <summary>
+            Occurs when a level is entered.
+            </summary>
+        </member>
+        <member name="E:Jundroo.SimplePlanes.ModTools.Mocks.GameStateMock.LevelExited">
+            <summary>
+            Occurs when a level is exited.
+            </summary>
+        </member>
+        <member name="E:Jundroo.SimplePlanes.ModTools.Mocks.GameStateMock.LevelRestarted">
+            <summary>
+            Occurs when the current level is restarted.
+            </summary>
+        </member>
+        <member name="E:Jundroo.SimplePlanes.ModTools.Mocks.GameStateMock.MapEntered">
+            <summary>
+            Occurs when a map is entered.
+            </summary>
+        </member>
+        <member name="E:Jundroo.SimplePlanes.ModTools.Mocks.GameStateMock.MapExited">
+            <summary>
+            Occurs when a map is exited.
+            </summary>
+        </member>
+        <member name="E:Jundroo.SimplePlanes.ModTools.Mocks.GameStateMock.MapLocationChanged">
+            <summary>
+            Occurs when the map starting location has changed.
+            </summary>
+        </member>
+        <member name="E:Jundroo.SimplePlanes.ModTools.Mocks.GameStateMock.PauseChanged">
+            <summary>
+            Occurs when a change has occurred in the pause state of the application.
+            </summary>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.GameStateMock.CurrentLevelName">
+            <summary>
+            Gets or sets the name of the current level.
+            </summary>
+            <value>
+            The name of the current level.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.GameStateMock.CurrentMapName">
+            <summary>
+            Gets or sets the name of the current map.
+            </summary>
+            <value>
+            The name of the current map.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.GameStateMock.IsInDesigner">
+            <summary>
+            Gets or sets a value indicating whether the user is currently in designer.
+            </summary>
+            <value>
+            <c>true</c> if the user is currently in designer; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.GameStateMock.IsInLevel">
+            <summary>
+            Gets or sets a value indicating whether the user is currently in a level.
+            </summary>
+            <value>
+            <c>true</c> if the user is currently in a level; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.GameStateMock.IsPaused">
+            <summary>
+            Gets or sets a value indicating whether the game is paused.
+            </summary>
+            <value>
+              <c>true</c> if the game is paused; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.GameStateMock.RaiseAircraftViewChanged(Jundroo.SimplePlanes.ModTools.Events.AircraftViewChangedEventArgs)">
+            <summary>
+            Raises the AircraftViewChanged event.
+            </summary>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.GameStateMock.RaiseDesignerEntered(System.EventArgs)">
+            <summary>
+            Raises the DesignerEntered event.
+            </summary>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.GameStateMock.RaiseDesignerExited(System.EventArgs)">
+            <summary>
+            Raises the DesignerExited event.
+            </summary>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.GameStateMock.RaiseLevelEntered(Jundroo.SimplePlanes.ModTools.Events.LevelChangedEventArgs)">
+            <summary>
+            Raises the LevelEntered event.
+            </summary>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.GameStateMock.RaiseLevelExited(Jundroo.SimplePlanes.ModTools.Events.LevelChangedEventArgs)">
+            <summary>
+            Raises the LevelExited event.
+            </summary>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.GameStateMock.RaiseLevelRestarted(System.EventArgs)">
+            <summary>
+            Raises the LevelRestarted event.
+            </summary>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.GameStateMock.RaiseMapEntered(Jundroo.SimplePlanes.ModTools.Events.MapChangedEventArgs)">
+            <summary>
+            Raises the MapEntered event.
+            </summary>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.GameStateMock.RaiseMapExited(Jundroo.SimplePlanes.ModTools.Events.MapChangedEventArgs)">
+            <summary>
+            Raises the MapExited event.
+            </summary>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.GameStateMock.RaiseMapLocationChanged(Jundroo.SimplePlanes.ModTools.Events.MapLocationChangedEventArgs)">
+            <summary>
+            Raises the MapLocationChanged event.
+            </summary>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.GameStateMock.RaisePauseChanged(Jundroo.SimplePlanes.ModTools.Events.PauseChangedEventArgs)">
+            <summary>
+            Raises the PauseChanged event.
+            </summary>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.GameStateMock.RequestPauseChange(System.Boolean,System.Boolean)">
+            <summary>
+            Requests a change in the pause state of the application.
+            </summary>
+            <param name="paused"><c>true</c> if requesting that the application be paused.
+            <c>false</c> if requesting that the application be un-paused.</param>
+            <param name="userInitiated"><c>true</c> if this requested change in the pause state has been initiated by the user.</param>
+            <returns>
+            The new pause state of the game.
+            </returns>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.Mocks.GameWorldMock">
+            <summary>
+            A mocked up testing class for the <see cref="T:Jundroo.SimplePlanes.ModTools.IGameWorld"/> service.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.GameWorldMock.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Jundroo.SimplePlanes.ModTools.Mocks.GameWorldMock"/> class.
+            </summary>
+        </member>
+        <member name="E:Jundroo.SimplePlanes.ModTools.Mocks.GameWorldMock.FloatingOriginChanged">
+            <summary>
+            Occurs when the floating origin changes.
+            </summary>
+        </member>
+        <member name="E:Jundroo.SimplePlanes.ModTools.Mocks.GameWorldMock.SeaLevelChanged">
+            <summary>
+            Occurs when the sea level changes.
+            </summary>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.GameWorldMock.FloatingOriginOffset">
+            <summary>
+            Gets or sets the floating origin offset which represents the current origin's position relative to the true origin.
+            </summary>
+            <value>
+            The floating origin offset which represents the current origin's position relative to the true origin.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.GameWorldMock.FloatingOriginSeaLevel">
+            <summary>
+            Gets the current world height of the sea level in world coordinates taking floating origin into account.
+            </summary>
+            <value>
+            The current world height of the sea level in world coordinates taking floating origin into account.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.GameWorldMock.MassScale">
+            <summary>
+            Gets or sets the scale factor applied to the mass of parts in the game.
+            If a part weighs 1000 pounds and the scale factor is 0.01, then the mass of the associated rigid body will be 10 pounds.
+            </summary>
+            <value>
+            The scale factor applied to the mass of parts in the game.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.GameWorldMock.SeaLevel">
+            <summary>
+            Gets or sets the sea level on the y-axis.
+            </summary>
+            <value>
+            The sea level on the y-axis.
+            </value>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.GameWorldMock.CreateExplosion(UnityEngine.Vector3,System.Single,System.Int32)">
+            <summary>
+            Creates an explosion in the game world which only impacts aircraft parts.
+            </summary>
+            <param name="position">The position of the explosion.</param>
+            <param name="magnitude">The magnitude.</param>
+            <param name="explosionCascadeCount">The number of explosions that have cascaded to create this explosion.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.GameWorldMock.RaiseFloatingOriginChanged(Jundroo.SimplePlanes.ModTools.Events.FloatingOriginChangedEventArgs)">
+            <summary>
+            Raises the floating origin changed event.
+            </summary>
+            <param name="e">The <see cref="T:Jundroo.SimplePlanes.ModTools.Events.FloatingOriginChangedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.GameWorldMock.RaiseSeaLevelChanged(Jundroo.SimplePlanes.ModTools.Events.SeaLevelChangedEventArgs)">
+            <summary>
+            Raises the sea level changed event.
+            </summary>
+            <param name="e">The <see cref="T:Jundroo.SimplePlanes.ModTools.Events.SeaLevelChangedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.GameWorldMock.ShowStatusMessage(System.String,System.Single)">
+            <summary>
+            Shows the message using the in-game message system.
+            </summary>
+            <param name="message">The message to show.</param>
+            <param name="time">The time to display the message.</param>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.Mocks.ModResourceLoaderMock">
+            <summary>
+            A mocked up testing class for the <see cref="T:Jundroo.ModTools.IModResourceLoader"/> service.
+            </summary>
+        </member>
+        <member name="E:Jundroo.SimplePlanes.ModTools.Mocks.ModResourceLoaderMock.GameObjectLoaded">
+            <summary>
+            Occurs when a game object is loaded.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.ModResourceLoaderMock.LoadAsset``1(System.String)">
+            <summary>
+            Loads the asset at the specified path.
+            </summary>
+            <typeparam name="T">The type of the asset to load.</typeparam>
+            <param name="path">The path of the asset to load. (Example: "Assets/Textures/MyTexture.png")</param>
+            <returns>
+            The requested asset or <c>null</c> if an asset of the requested type at the specified path could not be found.
+            </returns>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.ModResourceLoaderMock.LoadAsset(System.String,System.Type)">
+            <summary>
+            Loads the asset at the specified path.
+            </summary>
+            <param name="path">The path of the asset to load. (Example: "Assets/Textures/MyTexture.png")</param>
+            <param name="type">The type of the asset to load.</param>
+            <returns>
+            The requested asset or <c>null</c> if an asset of the requested type at the specified path could not be found.
+            </returns>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.ModResourceLoaderMock.LoadAssetAsync(System.String,System.Type)">
+            <summary>
+            Asynchronously loads the asset at the specified path.
+            </summary>
+            <param name="path">The path of the asset to load. (Example: "Assets/Textures/MyTexture.png")</param>
+            <param name="type">The type of the asset to load.</param>
+            <returns>
+            The asynchronous request for the asset.
+            </returns>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.ModResourceLoaderMock.LoadAssetAsync``1(System.String)">
+            <summary>
+            Asynchronously loads the asset at the specified path.
+            </summary>
+            <typeparam name="T">The type of the asset to load.</typeparam>
+            <param name="path">The path of the asset to load. (Example: "Assets/Textures/MyTexture.png")</param>
+            <returns>
+            The asynchronous request for the asset.
+            </returns>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.ModResourceLoaderMock.LoadGameObject(System.String)">
+            <summary>
+            Loads a game object with the specified name from the mod.
+            This is used to load game objects that were manually exported during the creation of the mod.
+            GameObjects are loaded as prefabs, cloned, custom scripts reattached, then the cloned object is returned.
+            </summary>
+            <param name="nameOrPath">The name or path of the game object to load.</param>
+            <returns>
+            The requested game object or <c>null</c> if it could not be found.
+            </returns>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.ModResourceLoaderMock.LoadGameObjectAsync(System.String)">
+            <summary>
+            Asynchronously loads a game object with the specified name from the mod.
+            This is used to load game objects that were manually exported during the creation of the mod.
+            GameObjects are loaded as prefabs, cloned, custom scripts reattached, then the cloned object is returned.
+            WARNING: Any assets associated with the asset being loaded will be loaded synchronously!
+            </summary>
+            <param name="nameOrPath">The name or path of the game object to load.</param>
+            <returns>
+            The asynchronous request for the game object.
+            </returns>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.ModResourceLoaderMock.RaiseGameObjectLoadedEvent(Jundroo.ModTools.Events.GameObjectLoadedEventArgs)">
+            <summary>
+            Raises the game object loaded event.
+            </summary>
+            <param name="e">The <see cref="T:Jundroo.ModTools.Events.GameObjectLoadedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.Mocks.PlayerAircraftControlsMock">
+            <summary>
+            A mocked up testing class for the <see cref="T:Jundroo.SimplePlanes.ModTools.IPlayerAircraftControls"/> service.
+            </summary>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.PlayerAircraftControlsMock.Brake">
+            <summary>
+            Gets or sets the brake value (0.0 to 1.0).
+            </summary>
+            <value>
+            The brake value (0.0 to 1.0).
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.PlayerAircraftControlsMock.FireGuns">
+            <summary>
+            Gets or sets a value indicating whether the fire guns control is activated.
+            </summary>
+            <value>
+            <c>true</c> if fire guns down control is activated; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.PlayerAircraftControlsMock.FireWeapons">
+            <summary>
+            Gets or sets a value indicating whether the fire weapons control is activated.
+            </summary>
+            <value>
+            <c>true</c> if fire weapons down control is activated; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.PlayerAircraftControlsMock.LandingGearDown">
+            <summary>
+            Gets or sets a value indicating whether the landing gear down control is activated.
+            </summary>
+            <value>
+            <c>true</c> if landing gear down control is activated; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.PlayerAircraftControlsMock.Pitch">
+            <summary>
+            Gets or sets the pitch value (-1.0 to 1.0).
+            </summary>
+            <value>
+            The pitch value (-1.0 to 1.0).
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.PlayerAircraftControlsMock.Roll">
+            <summary>
+            Gets or sets the roll value (-1.0 to 1.0).
+            </summary>
+            <value>
+            The roll value (-1.0 to 1.0).
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.PlayerAircraftControlsMock.Throttle">
+            <summary>
+            Gets or sets the throttle value (0.0 to 1.0).
+            </summary>
+            <value>
+            The throttle value (0.0 to 1.0).
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.PlayerAircraftControlsMock.ThrottleIncrement">
+            <summary>
+            Gets or sets the throttle increment value (-1.0 to 1.0).
+            </summary>
+            <value>
+            The throttle increment value (-1.0 to 1.0).
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.PlayerAircraftControlsMock.Vtol">
+            <summary>
+            Gets or sets the VTOL value (-1.0 to 1.0).
+            </summary>
+            <value>
+            The VTOL value (-1.0 to 1.0).
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.PlayerAircraftControlsMock.Yaw">
+            <summary>
+            Gets or sets the yaw value (-1.0 to 1.0).
+            </summary>
+            <value>
+            The yaw value (-1.0 to 1.0).
+            </value>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.PlayerAircraftControlsMock.DisableAllDefaultControls">
+            <summary>
+            Disables all default controls.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.PlayerAircraftControlsMock.DisableDefaultControls(Jundroo.SimplePlanes.ModTools.PlayerAircraftControlTypes)">
+            <summary>
+            Disables the specified default controls.
+            </summary>
+            <param name="controlTypes">The control types to disable.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.PlayerAircraftControlsMock.EnableAllDefaultControls">
+            <summary>
+            Enables all default controls.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.PlayerAircraftControlsMock.EnableDefaultControls(Jundroo.SimplePlanes.ModTools.PlayerAircraftControlTypes)">
+            <summary>
+            Enables the specified default controls.
+            </summary>
+            <param name="controlTypes">The control types to enable.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.PlayerAircraftControlsMock.GetActivationGroupState(System.Int32)">
+            <summary>
+            Gets the state of the activation group.
+            </summary>
+            <param name="groupNumber">The group number.</param>
+            <returns>
+              <c>true</c> if the activation group is enabled, <c>false</c> otherwise.
+            </returns>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.PlayerAircraftControlsMock.GetEnabledDefaultControls">
+            <summary>
+            Gets the flags indicating the currently enabled default controls.
+            </summary>
+            <returns>
+            The enumeration flags representing the currently enabled default controls.
+            </returns>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.PlayerAircraftControlsMock.ToggleActivationGroup(System.Int32)">
+            <summary>
+            Toggles the activation group.
+            </summary>
+            <param name="groupNumber">The group number to toggle.</param>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.Mocks.PlayerAircraftMock">
+            <summary>
+            A mocked up testing class for the <see cref="T:Jundroo.SimplePlanes.ModTools.IPlayerAircraft"/> service.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.PlayerAircraftMock.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Jundroo.SimplePlanes.ModTools.Mocks.PlayerAircraftMock"/> class.
+            </summary>
+        </member>
+        <member name="E:Jundroo.SimplePlanes.ModTools.Mocks.PlayerAircraftMock.AircraftDamaged">
+            <summary>
+            Occurs when the player's aircraft is damaged.
+            </summary>
+        </member>
+        <member name="E:Jundroo.SimplePlanes.ModTools.Mocks.PlayerAircraftMock.AircraftStructureChanged">
+            <summary>
+            Occurs when the player's aircraft structure has changed.
+            </summary>
+        </member>
+        <member name="E:Jundroo.SimplePlanes.ModTools.Mocks.PlayerAircraftMock.PartEnteredWater">
+            <summary>
+            Occurs when an aircraft part enters the water.
+            </summary>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.PlayerAircraftMock.Airspeed">
+            <summary>
+            Gets or sets the current airspeed of the aircraft. (meters per second)
+            </summary>
+            <value>
+            The current airspeed of the aircraft. (meters per second)
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.PlayerAircraftMock.Altitude">
+            <summary>
+            Gets or sets the current altitude of the aircraft. (meters)
+            </summary>
+            <value>
+            The current altitude of the aircraft. (meters)
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.PlayerAircraftMock.Controls">
+            <summary>
+            Gets or sets the controls for the player's aircraft.
+            </summary>
+            <value>
+            The controls for the player's aircraft.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.PlayerAircraftMock.Fuel">
+            <summary>
+            Gets or sets the current fuel for the aircraft. (liters)
+            </summary>
+            <value>
+            The current fuel for the aircraft. (liters)
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.PlayerAircraftMock.FuelCapacity">
+            <summary>
+            Gets or sets the fuel capacity for the aircraft. (liters)
+            </summary>
+            <value>
+            The fuel capacity for the aircraft. (liters)
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.PlayerAircraftMock.MainCockpitPosition">
+            <summary>
+            Gets or sets the position of the aircraft's main cockpit in the game world.
+            </summary>
+            <value>
+            The position of the aircraft's main cockpit in the game world.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.PlayerAircraftMock.MainCockpitRotation">
+            <summary>
+            Gets or sets the rotation of the aircraft's main cockpit in the game world.
+            </summary>
+            <value>
+            The rotation of the aircraft's main cockpit in the game world.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.PlayerAircraftMock.Parts">
+            <summary>
+            Gets or sets all parts' GameObjects in the current player-controlled aircraft.
+            </summary>
+            <value>
+            All parts's GameObjects in the current player-controlled aircraft.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.PlayerAircraftMock.Velocity">
+            <summary>
+            Gets or sets the current velocity of the aircraft. (meters per second)
+            </summary>
+            <value>
+            The current velocity of the aircraft. (meters per second)
+            </value>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.PlayerAircraftMock.RaiseAircraftDamaged(System.EventArgs)">
+            <summary>
+            Raises the AircraftDamaged event.
+            </summary>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.PlayerAircraftMock.RaiseAircraftStructureChanged(System.EventArgs)">
+            <summary>
+            Raises the AircraftStructureChanged event.
+            </summary>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.PlayerAircraftMock.RaisePartEnteredWater(System.EventArgs)">
+            <summary>
+            Raises the PartEnteredWater event.
+            </summary>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.Mocks.UserInterfaceMock">
+            <summary>
+            A mocked up testing class for the <see cref="T:Jundroo.SimplePlanes.ModTools.IUserInterface"/> service.
+            </summary>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.UserInterfaceMock.EventSystem">
+            <summary>
+            Gets or sets the event system for the current scene.
+            </summary>
+            <value>
+            The event system for the current scene.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.UserInterfaceMock.UIRootObject">
+            <summary>
+            Gets or sets the root game object for all UI elements.
+            </summary>
+            <value>
+            The root game object for all UI elements.
+            </value>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.UserInterfaceMock.HideUIElement(Jundroo.SimplePlanes.ModTools.FlightUIElementType)">
+            <summary>
+            Hides the specified UI element (if shown).
+            </summary>
+            <param name="elementType">Type of the element to hide.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.UserInterfaceMock.ShowUIElement(Jundroo.SimplePlanes.ModTools.FlightUIElementType)">
+            <summary>
+            Shows the specified UI element (if hidden).
+            </summary>
+            <param name="elementType">Type of the element to show.</param>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.Parts.AttachPointAdaptiveBlockHandling">
+            <summary>
+            A class containing information on how an attach point handles adaptive blocks.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.AttachPointAdaptiveBlockHandling.AdaptiveIgnore">
+            <summary>
+            Gets or sets a value indicating whether the 'adaptive' feature of adaptive parts should be ignored at this attach point.
+            </summary>
+            <value>
+            <c>true</c> if the 'adaptive' feature of adaptive parts should be ignored at this attach point; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.AttachPointAdaptiveBlockHandling.HardEdgeBottom">
+            <summary>
+            Gets or sets a value indicating whether the bottom edge of the adaptive part connection should be hard.
+            </summary>
+            <value>
+              <c>true</c> if the bottom edge of the adaptive part connection should be hard; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.AttachPointAdaptiveBlockHandling.HardEdgeLeft">
+            <summary>
+            Gets or sets a value indicating whether the left edge of the adaptive part connection should be hard.
+            </summary>
+            <value>
+              <c>true</c> if the left edge of the adaptive part connection should be hard; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.AttachPointAdaptiveBlockHandling.HardEdgeRight">
+            <summary>
+            Gets or sets a value indicating whether the right edge of the adaptive part connection should be hard.
+            </summary>
+            <value>
+              <c>true</c> if the right edge of the adaptive part connection should be hard; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.AttachPointAdaptiveBlockHandling.HardEdgeTop">
+            <summary>
+            Gets or sets a value indicating whether the top edge of the adaptive part connection should be hard.
+            </summary>
+            <value>
+              <c>true</c> if the top edge of the adaptive part connection should be hard; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Parts.AttachPointAdaptiveBlockHandling.GetHardEdgeXmlValue">
+            <summary>
+            Gets the hard edge XML value.
+            </summary>
+            <returns>The value used in the XML to represent the hard or soft edges.</returns>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.Parts.Attributes.DesignerPropertyAttribute">
+            <summary>
+            A base class for attributes used to configure modifiable properties on part modifiers in the designer.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Parts.Attributes.DesignerPropertyAttribute.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Jundroo.SimplePlanes.ModTools.Parts.Attributes.DesignerPropertyAttribute"/> class.
+            </summary>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Parts.Attributes.DesignerPropertyAttribute.Label">
+            <summary>
+            Gets or sets the label text for the property.
+            </summary>
+            <value>
+            The label text for the property.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Parts.Attributes.DesignerPropertyAttribute.Order">
+            <summary>
+            Gets or sets the order of the property.
+            Properties with lower orders will appear above properties with higher orders.
+            The default order for properties is 100.
+            </summary>
+            <value>
+            The order of the property.
+            </value>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.Parts.Attributes.DesignerPropertySliderAttribute">
+            <summary>
+            An attribute used to flag a part modifier's field as being modifiable in the designer via a slider control.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Parts.Attributes.DesignerPropertySliderAttribute.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Jundroo.SimplePlanes.ModTools.Parts.Attributes.DesignerPropertySliderAttribute"/> class.
+            This will provider values between 0 and 1 using increments of 0.1 for each step.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Parts.Attributes.DesignerPropertySliderAttribute.#ctor(System.Single,System.Single,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Jundroo.SimplePlanes.ModTools.Parts.Attributes.DesignerPropertySliderAttribute"/> class.
+            </summary>
+            <param name="min">The minimum value for the slider.</param>
+            <param name="max">The maximum value for the slider.</param>
+            <param name="numberOfSteps">The number of steps for the slider.</param>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Parts.Attributes.DesignerPropertySliderAttribute.MaxValue">
+            <summary>
+            Gets or sets the maximum value for the slider.
+            </summary>
+            <value>
+            The maximum value for the slider.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Parts.Attributes.DesignerPropertySliderAttribute.MinValue">
+            <summary>
+            Gets or sets the minimum value for the slider.
+            </summary>
+            <value>
+            The minimum value for the slider.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Parts.Attributes.DesignerPropertySliderAttribute.NumberOfSteps">
+            <summary>
+            Gets or sets the number of steps for the slider.
+            </summary>
+            <value>
+            The number of steps for the slider.
+            </value>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.Parts.Attributes.DesignerPropertySpinnerAttribute">
+            <summary>
+            An attribute used to flag a part modifier's field as being modifiable in the designer via a spinner control.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Parts.Attributes.DesignerPropertySpinnerAttribute.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Jundroo.SimplePlanes.ModTools.Parts.Attributes.DesignerPropertySpinnerAttribute"/> class.
+            By default, this provides a spinner control that ranges between -10 and 10 with a step value of 1.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Parts.Attributes.DesignerPropertySpinnerAttribute.#ctor(System.Double,System.Double,System.Double)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Jundroo.SimplePlanes.ModTools.Parts.Attributes.DesignerPropertySpinnerAttribute"/> class.
+            </summary>
+            <param name="min">The minimum value of the spinner control.</param>
+            <param name="max">The maximum value of the spinner control.</param>
+            <param name="stepSize">The size of each step (i.e. the amount added or subtracted each time the user activates a spinner button).</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Parts.Attributes.DesignerPropertySpinnerAttribute.#ctor(System.Single,System.Single,System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Jundroo.SimplePlanes.ModTools.Parts.Attributes.DesignerPropertySpinnerAttribute"/> class.
+            </summary>
+            <param name="min">The minimum value of the spinner control.</param>
+            <param name="max">The maximum value of the spinner control.</param>
+            <param name="stepSize">The size of each step (i.e. the amount added or subtracted each time the user activates a spinner button).</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Parts.Attributes.DesignerPropertySpinnerAttribute.#ctor(System.Decimal,System.Decimal,System.Decimal)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Jundroo.SimplePlanes.ModTools.Parts.Attributes.DesignerPropertySpinnerAttribute"/> class.
+            </summary>
+            <param name="min">The minimum value of the spinner control.</param>
+            <param name="max">The maximum value of the spinner control.</param>
+            <param name="stepSize">The size of each step (i.e. the amount added or subtracted each time the user activates a spinner button).</param>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Parts.Attributes.DesignerPropertySpinnerAttribute.MaxValue">
+            <summary>
+            Gets or sets the maximum value.
+            </summary>
+            <value>
+            The maximum value.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Parts.Attributes.DesignerPropertySpinnerAttribute.MinValue">
+            <summary>
+            Gets or sets the minimum value.
+            </summary>
+            <value>
+            The minimum value.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Parts.Attributes.DesignerPropertySpinnerAttribute.StepSize">
+            <summary>
+            Gets or sets the size of each step (i.e. the amount added or subtracted each time the user activates a spinner button).
+            </summary>
+            <value>
+            The size of each step (i.e. the amount added or subtracted each time the user activates a spinner button).
+            </value>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.Parts.Attributes.DesignerPropertyToggleButtonAttribute">
+            <summary>
+            An attribute used to flag a part modifier's field as being modifiable in the designer via a toggle button control.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Parts.Attributes.DesignerPropertyToggleButtonAttribute.#ctor(System.String[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Jundroo.SimplePlanes.ModTools.Parts.Attributes.DesignerPropertyToggleButtonAttribute"/> class.
+            If associated with a string field, values must be specified in the constructor.
+            If associated with a boolean field, default 'False'/'True' values will be used.
+            If other terminology is desired (such as 'Disabled'/'Enabled'), two string values can be specified (false value first, then true value).
+            If associated with an enumeration, the string value of each enumeration option will be used as values.
+            If other terminology is desired, a set of values may be specified as long as the number of values matches the number of enumeration values.
+            The order of the values should correspond to the order of the values returned by Enum.GetNames([enumeration type]).
+            </summary>
+            <param name="values">The list of values to be cycled through each time the user activates the button.</param>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Parts.Attributes.DesignerPropertyToggleButtonAttribute.Values">
+            <summary>
+            Gets or sets the list of possible values to be cycled through.
+            </summary>
+            <value>
+            The list of possible values to be cycled through.
+            </value>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.Parts.Attributes.PartModifierDesignerHeaderAttribute">
+            <summary>
+            An attribute applied to part modifier classes used to specify the part modifier's header when viewed in the designer.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Parts.Attributes.PartModifierDesignerHeaderAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Jundroo.SimplePlanes.ModTools.Parts.Attributes.PartModifierDesignerHeaderAttribute"/> class.
+            </summary>
+            <param name="headerText">The designer header text for the part modifier.</param>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Parts.Attributes.PartModifierDesignerHeaderAttribute.HeaderText">
+            <summary>
+            Gets the designer header text for the part modifier.
+            </summary>
+            <value>
+            The designer header text for the part modifier.
+            </value>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.Parts.Attributes.PartModifierPropertyAttribute">
+            <summary>
+            An attribute used to configure part modifier properties.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Parts.Attributes.PartModifierPropertyAttribute.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Jundroo.SimplePlanes.ModTools.Parts.Attributes.PartModifierPropertyAttribute"/> class.
+            </summary>
+            <param name="preserveState">A
+            value indicating whether the state of the property should be preserved
+            when saving an aircraft and then later restored when the aircraft is loaded.
+            </param>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Parts.Attributes.PartModifierPropertyAttribute.PreserveState">
+            <summary>
+            Gets or sets a value indicating whether the state of the property should be preserved
+            when saving an aircraft and then later restored when the aircraft is loaded.
+            </summary>
+            <value>
+            <c>true</c> if the state of the property should be preserved when saving an aircraft
+            and then later restored when the aircraft is loaded; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.Parts.IInputController">
+            <summary>
+            An interface for an input controller modifier script placed on a part.
+            </summary>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Parts.IInputController.Active">
+            <summary>
+            Gets a value indicating whether the control associated with the input controller is currently active.
+            </summary>
+            <value>
+              <c>true</c> if the control associated with the input controller is currently active; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Parts.IInputController.Value">
+            <summary>
+            Gets the current value of the control associated with the input controller.
+            </summary>
+            <value>
+            The current value of the control associated with the input controller.
+            </value>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.Parts.JointType">
+            <summary>
+            Types of joints available.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.JointType.Fixed">
+            <summary>
+            The fixed joint, which cannot move.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.JointType.Hinge">
+            <summary>
+            The hinge joint which can rotate around one axis.
+            </summary>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.Parts.Part">
+            <summary>
+            A class representing a mod part.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.Part.CombineMeshes">
+            <summary>
+            A value indicating whether the part's meshes can be combined with the meshes of neighboring parts.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.Part.DesignerInfo">
+            <summary>
+            The designer information for the part.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.Part.DisconnectForce">
+            <summary>
+            The force required to destroy this part or break it off from the rest of the plane.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.Part.Initialized">
+            <summary>
+            A value indicating whether the part has been initialized.
+            (i.e. user has made the choice between a new part and cloning an existing part)
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.Part.Mass">
+            <summary>
+            The mass of the part.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.Part.Name">
+            <summary>
+            The name of the part used to uniquely identify it.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.Part.PrimaryColorIndex">
+            <summary>
+            The color index of the default primary color.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.Part.SharesRigidBody">
+            <summary>
+            A value indicating whether the part can share a rigid body with neighboring parts.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.Part.Trim1ColorIndex">
+            <summary>
+            The color index of the default trim 1 color.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.Part.Trim2ColorIndex">
+            <summary>
+            The color index of the default trim 2 color.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.Part.Trim3ColorIndex">
+            <summary>
+            The color index of the default trim 3 color.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.Part.UnderwaterDragScalar">
+            <summary>
+            The underwater drag scalar value.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Parts.Part.GenerateDesignerPartXml(System.String,System.Func{UnityEngine.Object,System.String})">
+            <summary>
+            Generates the designer part XML.
+            </summary>
+            <param name="modName">The name of the mod in which the part resides.</param>
+            <param name="lookupAssetPath">The function used to lookup the paths of assets.</param>
+            <returns>The designer part XML.</returns>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Parts.Part.GeneratePartTypeXml(System.String,System.String)">
+            <summary>
+            Generates the part type XML.
+            </summary>
+            <param name="modName">The name of the mod in which the part resides.</param>
+            <param name="prefabPath">The prefab path of the part or <c>null</c>.</param>
+            <returns>The part type XML.</returns>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Parts.Part.GetId(System.String)">
+            <summary>
+            Gets the identifier for the part.
+            </summary>
+            <param name="modName">The name of the mod in which the part is included.</param>
+            <returns>The identifier for the part.</returns>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.Parts.PartAttachPoint">
+            <summary>
+            A component representing an attachment point for a part.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartAttachPoint.AdaptiveBlockHandling">
+            <summary>
+            Gets or sets the adaptive block handling.
+            </summary>
+            <value>
+            The adaptive block handling.
+            </value>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartAttachPoint.AllowAutoRotation">
+            <summary>
+            Gets or sets a value indicating whether the part can be auto rotated to line up with another attach point.
+            </summary>
+            <value>
+              <c>true</c> if the part can be auto rotated to line up with another attach point; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartAttachPoint.Display">
+            <summary>
+            Gets or sets a value indicating whether to display this attach point in the designer.
+            </summary>
+            <value>
+              <c>true</c> if this attach point should be displayed in the designer; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartAttachPoint.DisplayWhenDragged">
+            <summary>
+            Gets or sets a value indicating whether to display this attach point in the designer when the part is being dragged.
+            </summary>
+            <value>
+              <c>true</c> if this attach point should be displayed in the designer when the part is being dragged; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartAttachPoint.FuselageConnection">
+            <summary>
+            Gets or sets a value that, if <c>true</c>, indicates that this attach point is only used to attach to other special fuselage attach points.
+            </summary>
+            <value>
+              <c>true</c> if this attach point is only used to attach to other special fuselage attach points; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartAttachPoint.IgnoreGrid">
+            <summary>
+            Gets or sets a value indicating whether this attach point should snap to another attach point on placement or if it
+            should allow connection anywhere on another attach point. The VTOL nozzles use this flag so the user can have more
+            control over exactly where they place the nozzle.
+            </summary>
+            <value>
+              <c>true</c> if the grid should be ignored when parts are attached; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartAttachPoint.IgnoreSurface">
+            <summary>
+            Gets or sets a value that, if <c>true</c>, indicates that the attach point can attach to a surface collider attach point.
+            </summary>
+            <value>
+              <c>true</c> if the attach point can attach to a surface collider attach point; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartAttachPoint.JointType">
+            <summary>
+            Gets or sets the type of the joint.
+            </summary>
+            <value>
+            The type of the joint.
+            </value>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartAttachPoint.SurfaceColliderName">
+            <summary>
+            Gets or sets the name of the game object containing the surface attach point collider.
+            If this is a surface attach point, this should be set to the name of the game object containing the surface's collider. 
+            Setting this will ignore all other information set on this attach point and it will be treated as a special 'surface' attach point.
+            </summary>
+            <value>
+            The name of the game object containing the surface attach point collider.
+            </value>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartAttachPoint.WingAttach">
+            <summary>
+            Gets or sets a value indicating if the attach point can be attached to a wing.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Parts.PartAttachPoint.GenerateXml">
+            <summary>
+            Generates the XML for the attach point.
+            </summary>
+            <returns>The XML for the attach point.</returns>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Parts.PartAttachPoint.GetVectorString(UnityEngine.Vector3)">
+            <summary>
+            Gets the string representation of the specified vector.
+            </summary>
+            <param name="v">The vector.</param>
+            <returns>The vector string.</returns>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.Parts.PartCategories">
+            <summary>
+            The part categories.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartCategories.Cockpits">
+            <summary>
+            The cockpits category.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartCategories.Gizmos">
+            <summary>
+            The gizmos category.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartCategories.LandingGear">
+            <summary>
+            The landing gear category.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartCategories.Propulsion">
+            <summary>
+            The propulsion category.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartCategories.Structural">
+            <summary>
+            The structural category.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartCategories.Subassemblies">
+            <summary>
+            The subassemblies category.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartCategories.Weapons">
+            <summary>
+            The weapons category.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartCategories.Wings">
+            <summary>
+            The wings category.
+            </summary>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.Parts.PartColliderConfiguration">
+            <summary>
+            A class representing configuration information for a part collider.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartColliderConfiguration.IsPrimaryCollider">
+            <summary>
+            A value indicating if the collider is the primary collider for the part.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartColliderConfiguration.DesignerConfiguration">
+            <summary>
+            The designer configuration information for the part collider.
+            </summary>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.Parts.PartColliderDesignerConfiguration">
+            <summary>
+            A class representing designer configuration information for a part collider.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartColliderDesignerConfiguration.IncludeInAero">
+            <summary>
+            A value indicating whether or not this collider should be included as part of the drag model for the aircraft.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartColliderDesignerConfiguration.IncludeInIntersections">
+            <summary>
+            A value indicating whether or not this collider is ignored when determining if a part has collisions with another part in the designer.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartColliderDesignerConfiguration.IncludeInMirror">
+            <summary>
+            A value indicating whether or not this collider should be considered when determining which side of the mirror line a part lies when mirroring an aircraft.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Parts.PartColliderDesignerConfiguration.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Jundroo.SimplePlanes.ModTools.Parts.PartColliderDesignerConfiguration"/> class.
+            </summary>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.Parts.PartDesignerInfo">
+            <summary>
+            A class containing designer information related to a part.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartDesignerInfo.DisplayName">
+            <summary>
+            The display name of the part in the designer.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartDesignerInfo.Description">
+            <summary>
+            The description of the part.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartDesignerInfo.Category">
+            <summary>
+            The category to which the part belongs.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartDesignerInfo.CategoryIcon">
+            <summary>
+            The category icon.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartDesignerInfo.PartIcon">
+            <summary>
+            The designer icon for the part.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartDesignerInfo.Position">
+            <summary>
+            The default position of the part.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartDesignerInfo.Rotation">
+            <summary>
+            The default rotation of the part.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Parts.PartDesignerInfo.GenerateXml(Jundroo.SimplePlanes.ModTools.Parts.Part,System.String,System.Func{UnityEngine.Object,System.String},System.Collections.Generic.List{System.Xml.Linq.XElement})">
+            <summary>
+            Generates the XML representing the part's designer information.
+            </summary>
+            <param name="part">The part for which the XML is being generated.</param>
+            <param name="modName">The name of the mod containing the part.</param>
+            <param name="lookupAssetPath">The function used to lookup asset paths.</param>
+            <param name="modifierStates">The modifier state elements to include for this part.</param>
+            <returns>The XML element describing the designer information for the part.</returns>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Parts.PartDesignerInfo.GetVectorString(UnityEngine.Vector3)">
+            <summary>
+            Gets the string representation of the specified vector.
+            </summary>
+            <param name="v">The vector.</param>
+            <returns>The vector string.</returns>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.Parts.PartMeshConfiguration">
+            <summary>
+            A component that contains part configuration information for a mesh render on the same object.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartMeshConfiguration.ExcludeFromMeshCombine">
+            <summary>
+            A value indicating if this mesh should be excluding from the combining of neighboring meshes.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartMeshConfiguration.Materials">
+            <summary>
+            The material configuration information.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Parts.PartMeshConfiguration.Start">
+            <summary>
+            Starts this instance.
+            </summary>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.Parts.PartMeshMaterialType">
+            <summary>
+            An enumeration representing the different types of materials for part meshes.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartMeshMaterialType.Default">
+            <summary>
+            The default material type.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartMeshMaterialType.CustomWithOriginalColors">
+            <summary>
+            A custom material.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartMeshMaterialType.CustomWithThemeColors">
+            <summary>
+            A custom material that makes use of modifiable theme colors.
+            </summary>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.Parts.PartMeshMaterialConfiguration">
+            <summary>
+            A class representing configuration information for a part mesh's material.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartMeshMaterialConfiguration.Name">
+            <summary>
+            The name of this material item.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartMeshMaterialConfiguration.SubmeshIndex">
+            <summary>
+            The index of the sub mesh represented by this instance.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartMeshMaterialConfiguration.MaterialType">
+            <summary>
+            The material type for this instance.
+            </summary>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.Parts.PartModifier">
+            <summary>
+            The base class for all part modifiers.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartModifier._preserveMembersLookup">
+            <summary>
+            The cached lookup table of type keys to their associated list of member names
+            for which the member values are to be preserved when saving and loading states.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartModifier._serializer">
+            <summary>
+            The serializer used for saving and restoring state.
+            </summary>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Parts.PartModifier.Mass">
+            <summary>
+            Gets the extra mass for the part due to the modifier.
+            </summary>
+            <value>
+            The extra mass for the part due to the modifier.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Parts.PartModifier.UsedInPropMode">
+            <summary>
+            Gets a value indicating whether this modifier is used in 'prop mode'.
+            </summary>
+            <value>
+              <c>true</c> if this modifier is used in 'prop mode'; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Parts.PartModifier.GenerateStateXml(System.String)">
+            <summary>
+            Generates the XElement to fully describe the state of this modifier for serialization purposes.
+            </summary>
+            <param name="stateElementName">The expected name of the state element should one be created.</param>
+            <returns>
+            The XElement to fully describe this object for serialization purposes.
+            </returns>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Parts.PartModifier.GetDesignerPropertySliderValueLabel(System.String,System.Single)">
+            <summary>
+            Gets the label text for the value of a designer property's slider.
+            </summary>
+            <param name="propertyName">The name of the property for which to get the value label.</param>
+            <param name="sliderValue">The slider value for which to get the label.</param>
+            <returns>The label text representing the current value of the slider.</returns>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Parts.PartModifier.GetDesignerPropertySpinnerValueLabel(System.String,System.Single)">
+            <summary>
+            Gets the label text for the value of a designer property's spinner control.
+            </summary>
+            <param name="propertyName">The name of the property for which to get the value label.</param>
+            <param name="spinnerValue">The spinner value for which to get the label.</param>
+            <returns>The label text representing the current value of the spinner control.</returns>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Parts.PartModifier.Initialize(UnityEngine.GameObject)">
+            <summary>
+            Called when this part modifiers is being initialized as the part game object is being created.
+            </summary>
+            <param name="partRootObject">The root game object that has been created for the part.</param>
+            <returns>The created part modifier behaviour, or <c>null</c> if it was not created.</returns>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Parts.PartModifier.OnDesignerPropertyChanged(System.String,System.String)">
+            <summary>
+            Called when a property is changed in the designer.
+            </summary>
+            <param name="propertyName">The name of the property that was changed.</param>
+            <param name="value">The new property value.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Parts.PartModifier.RestoreFromDefaultStateXml(System.Xml.Linq.XElement)">
+            <summary>
+            Restores from default state XML.
+            </summary>
+            <param name="stateElement">The state element from which to restore.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Parts.PartModifier.RestoreFromState(System.Xml.Linq.XElement)">
+            <summary>
+            Restores the modifier state information from the specified XML element.
+            </summary>
+            <param name="stateElement">The state element from which to restore.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Parts.PartModifier.GenerateDefaultStateXml">
+            <summary>
+            Generates the default state XML.
+            </summary>
+            <returns>The default state XML.</returns>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Parts.PartModifier.GetMembersToPreserve(System.Type)">
+            <summary>
+            Gets the list of member names to preserve when saving and loading states.
+            </summary>
+            <param name="type">The type for which to get the member name list.</param>
+            <returns>The list of member names to preserve when saving and loading states.</returns>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.Parts.PartModifierBehaviour">
+            <summary>
+            The base class for all part modifier behaviors.
+            </summary>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Parts.PartModifierBehaviour.InputController">
+            <summary>
+            Gets or sets the input controller associated with the part (if any).
+            </summary>
+            <value>
+            The input controller associated with the part or <c>null</c>.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Parts.PartModifierBehaviour.PartModifier">
+            <summary>
+            Gets or sets the part modifier.
+            </summary>
+            <value>
+            The part modifier.
+            </value>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Parts.PartModifierBehaviour.Initialize(Jundroo.SimplePlanes.ModTools.Parts.PartModifier)">
+            <summary>
+            Initializes the part modifier behaviour.
+            </summary>
+            <param name="partModifier">The part modifier associated with the behavior.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Parts.PartModifierBehaviour.OnCollision(UnityEngine.Collision,UnityEngine.ContactPoint)">
+            <summary>
+            Called when a collision occurs for the rigid body associated with this part.
+            </summary>
+            <param name="collision">The collision.</param>
+            <param name="contactPoint">The contact point of the collision for this part.</param>
+            <returns>
+            A value indicating whether or not this part has handled the collision.
+            If <c>true</c>, the default collision actions will not be taken by the body script.
+            </returns>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Parts.PartModifierBehaviour.OnEnterWater">
+            <summary>
+            Called when the part has entered water.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Parts.PartModifierBehaviour.OnExitWater">
+            <summary>
+            Called when the part has exited water.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Parts.PartModifierBehaviour.OnExplosiveForceApplied(System.Single,UnityEngine.Vector3)">
+            <summary>
+            Called when explosive force applied to the part.
+            </summary>
+            <param name="force">The amount of the force.</param>
+            <param name="forceDirection">The direction of the force.</param>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.Parts.PartModifierReferenceProperty">
+            <summary>
+            A class representing a single property of a part modifier reference.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartModifierReferenceProperty.IsReadOnlyName">
+            <summary>
+            A value indicating if the property name is read only.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartModifierReferenceProperty.Name">
+            <summary>
+            The name of the property.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartModifierReferenceProperty.Tooltip">
+            <summary>
+            The tooltip for the property.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartModifierReferenceProperty.Value">
+            <summary>
+            The value of the property.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Parts.PartModifierReferenceProperty.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Jundroo.SimplePlanes.ModTools.Parts.PartModifierReferenceProperty"/> class.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Parts.PartModifierReferenceProperty.#ctor(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Jundroo.SimplePlanes.ModTools.Parts.PartModifierReferenceProperty"/> class.
+            </summary>
+            <param name="name">The name of the property.</param>
+            <param name="value">The value of the property.</param>
+            <param name="tooltip">The tooltip for the property.</param>
+            <param name="isReadOnlyName">If set to <c>true</c>, the property name is read only.</param>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.Parts.PartModifierReferenceScript">
+            <summary>
+            A component used to reference a part modifier that already exists in the game.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartModifierReferenceScript.IsReadOnlyId">
+            <summary>
+            A value indicating whether or not this component's id and property names are read only.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartModifierReferenceScript.PartModifierId">
+            <summary>
+            The part modifier identifier.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartModifierReferenceScript.Properties">
+            <summary>
+            The properties of the part modifier.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Parts.PartModifierReferenceScript.GenerateXml">
+            <summary>
+            Generates the XML for the part modifier reference.
+            </summary>
+            <returns>The part modifier reference XML.</returns>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.Parts.PartModifierScript">
+            <summary>
+            A base class wrapper script that allows part modifiers to be attached to game objects.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Parts.PartModifierScript.GenerateXml(System.String)">
+            <summary>
+            Generates the XML for the part modifier.
+            </summary>
+            <param name="modName">The name of the mod.</param>
+            <returns>The XML for the part modifier.</returns>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Parts.PartModifierScript.GetPartModifier">
+            <summary>
+            Gets the part modifier.
+            </summary>
+            <returns>The part modifier.</returns>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.Parts.PartModifierScript`1">
+            <summary>
+            A base class wrapper script that allows part modifiers to be attached to game objects.
+            </summary>
+            <typeparam name="T">The type of the part modifier.</typeparam>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartModifierScript`1.PartModifier">
+            <summary>
+            The part modifier.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Parts.PartModifierScript`1.GenerateXml(System.String)">
+            <summary>
+            Generates the XML for the part modifier.
+            </summary>
+            <param name="modName">The name of the mod.</param>
+            <returns>
+            The XML for the part modifier.
+            </returns>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Parts.PartModifierScript`1.GetPartModifier">
+            <summary>
+            Gets the part modifier.
+            </summary>
+            <returns>
+            The part modifier.
+            </returns>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.Parts.PartPrefabLink">
+            <summary>
+            A component that links to an existing part prefab in the game.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartPrefabLink.PrefabId">
+            <summary>
+            The prefab identifier.
+            </summary>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.PersistentObject">
+            <summary>
+            A component that is added to a game object that should live throughout the lifetime of the game.
+            </summary>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.Map">
+            <summary>
+            A component representing the root game object of a custom map.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Map.AllowSandbox">
+            <summary>
+            A value indicating whether or not this map is allowed in sandbox mode.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Map.DefaultStartLocation">
+            <summary>
+            The default start location for the player's aircraft.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Map.Description">
+            <summary>
+            The description of the map.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Map.IconPath">
+            <summary>
+            The optional icon path for the map.
+            This should be an asset path to a texture included in the mod.
+            (Example: "Assets/Textures/MyMapIcon.png")
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Map.MapName">
+            <summary>
+            The name of the map.
+            </summary>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.ProximityLoadedModObjectBase">
+            <summary>
+            A base class for proximity loaded objects from mods.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.ProximityLoadedModObjectBase._proximityLoaderType">
+            <summary>
+            The proximity loader type.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.ProximityLoadedModObjectBase._asynchronousLoadDistanceSquared">
+            <summary>
+            The pre-calculated squared value of the asynchronous load distance.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.ProximityLoadedModObjectBase._objectName">
+            <summary>
+            The name of the saved game object to load.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.ProximityLoadedModObjectBase._synchronousLoadDistanceSquared">
+            <summary>
+            The pre-calculated squared value of the synchronous load distance.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.ProximityLoadedModObjectBase._syncLoadDistance">
+            <summary>
+            The maximum distance at which the object will be synchronously loaded if an asynchronous load is not already taking place.
+            This cannot be changed after the object has been started.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.ProximityLoadedModObjectBase._asyncLoadDistance">
+            <summary>
+            The maximum distance at which the object will start being asynchronously loaded.
+            This cannot be changed after the object has been started.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.ProximityLoadedModObjectBase._terrains">
+            <summary>
+            The terrains in this proximity loaded object.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.ProximityLoadedModObjectBase._unloadDistance">
+            <summary>
+            The minimum distance at which the object will be unloaded.
+            This cannot be changed after the object has been started.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.ProximityLoadedModObjectBase._unloadDistanceSquared">
+            <summary>
+            The pre-calculated squared value of the unload distance.
+            </summary>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.ProximityLoadedModObjectBase.AsynchronousLoadDistanceSquared">
+            <summary>
+            Gets the squared distance which, if the player is within, the object will be asynchronously loaded.
+            </summary>
+            <value>
+            The squared distance which, if the player is within, the object will be asynchronously loaded.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.ProximityLoadedModObjectBase.IsEnabled">
+            <summary>
+            Gets a value indicating whether this instance is enabled.
+            </summary>
+            <value>
+            <c>true</c> if this instance is enabled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.ProximityLoadedModObjectBase.Name">
+            <summary>
+            Gets the name of the object.
+            </summary>
+            <value>
+            The name of the object.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.ProximityLoadedModObjectBase.Position">
+            <summary>
+            Gets the position of the object when it is loaded.
+            </summary>
+            <value>
+            The position of the object when it is loaded.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.ProximityLoadedModObjectBase.ResourceLoader">
+            <summary>
+            Gets the resource loader for the mod from which to load the object.
+            </summary>
+            <value>
+            The resource loader for the mod from which to load the object.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.ProximityLoadedModObjectBase.Rotation">
+            <summary>
+            Gets the rotation of the object when it is loaded.
+            </summary>
+            <value>
+            The rotation of the object when it is loaded.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.ProximityLoadedModObjectBase.SupportsAsynchronousLoading">
+            <summary>
+            Gets a value indicating whether this object supports asynchronous loading.
+            </summary>
+            <value>
+            <c>true</c> if this object supports asynchronous loading; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.ProximityLoadedModObjectBase.SynchronousLoadDistanceSquared">
+            <summary>
+            Gets the squared distance which, if the player is within, the object will be synchronously loaded if an asynchronous load is not already taking place.
+            </summary>
+            <value>
+            The squared distance which, if the player is within, the object will be synchronously loaded if an asynchronous load is not already taking place.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.ProximityLoadedModObjectBase.Terrains">
+            <summary>
+            Gets the terrains in this proximity loaded object.
+            </summary>
+            <value>
+            The terrains in this proximity loaded object.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.ProximityLoadedModObjectBase.UnloadDistanceSquared">
+            <summary>
+            Gets the squared distance which, if the player is at or beyond, the object will be unloaded.
+            </summary>
+            <value>
+            The squared distance which, if the player is at or beyond, the object will be unloaded.
+            </value>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.ProximityLoadedModObjectBase.LoadAsynchronously">
+            <summary>
+            Loads the object asynchronously.
+            </summary>
+            <returns>
+            The asynchronous load request.
+            </returns>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.ProximityLoadedModObjectBase.LoadSynchronously">
+            <summary>
+            Loads the object synchronously.
+            </summary>
+            <returns>
+            The loaded object.
+            </returns>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.ProximityLoadedModObjectBase.OnLoadCancelled">
+            <summary>
+            Called when the loading of an object is cancelled.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.ProximityLoadedModObjectBase.OnObjectLoaded(UnityEngine.GameObject)">
+            <summary>
+            Called when the object has been loaded.
+            </summary>
+            <param name="obj">The object that was loaded.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.ProximityLoadedModObjectBase.OnObjectLoading(System.Boolean)">
+            <summary>
+            Called when the object is loading.
+            </summary>
+            <param name="asynchronous">A value indicating whether or not the game object is being loaded asynchronously.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.ProximityLoadedModObjectBase.OnObjectUnloaded">
+            <summary>
+            Called when the object has been unloaded.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.ProximityLoadedModObjectBase.OnObjectUnloading(UnityEngine.GameObject)">
+            <summary>
+            Called right before the object is unloaded.
+            </summary>
+            <param name="obj">The object being unloaded.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.ProximityLoadedModObjectBase.UnloadObject(UnityEngine.GameObject)">
+            <summary>
+            Unloads the object.
+            </summary>
+            <param name="obj">The object to unload.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.ProximityLoadedModObjectBase.Start">
+            <summary>
+            Start is called on the frame when a script is enabled just before any of the Update methods is called the first time.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.ProximityLoadedModObjectBase.GetProximityLoader">
+            <summary>
+            Gets the proximity loader component.
+            </summary>
+            <returns>The proximity loader component.</returns>
+        </member>
+        <member name="T:Jundroo.SimplePlanes.ModTools.SimplePlanesModServiceProvider">
+            <summary>
+            A service provider for mods to interact with SimplePlanes.
+            </summary>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.SimplePlanesModServiceProvider.DevConsole">
+            <summary>
+            Gets the service for interacting with the dev console.
+            </summary>
+            <value>
+            The service for interacting with the dev console.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.SimplePlanesModServiceProvider.EnvironmentManager">
+            <summary>
+            Gets a service for interacting with the game world environment.
+            </summary>
+            <value>
+            A service for interacting with the game world environment.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.SimplePlanesModServiceProvider.GameCamera">
+            <summary>
+            Gets a service for interacting with the game camera
+            </summary>
+            <value>
+            The service for interacting with the game camera
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.SimplePlanesModServiceProvider.GameState">
+            <summary>
+            Gets a service for interacting with the current game state.
+            </summary>
+            <value>
+            A service for interacting with the current game state.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.SimplePlanesModServiceProvider.GameWorld">
+            <summary>
+            Gets a service for interacting with the game world.
+            </summary>
+            <value>
+            A service for interacting with the game world.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.SimplePlanesModServiceProvider.PlayerAircraft">
+            <summary>
+            Gets a service for interacting with the player's aircraft.
+            </summary>
+            <value>
+            A service for interacting with the player's aircraft.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.SimplePlanesModServiceProvider.UserInterface">
+            <summary>
+            Gets a service for interacting with the user interface.
+            </summary>
+            <value>
+            A service for interacting with the user interface.
+            </value>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.SimplePlanesModServiceProvider.RegisterMockServices">
+            <summary>
+            Registers the mock services (mainly for use in testing inside the Unity editor).
+            </summary>
+        </member>
+    </members>
+</doc>

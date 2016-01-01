@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Part name="ThrustVectorEngine_v2">
+  <PartType id="Mod_ThrustVectorEngine_v2_ThrustVectorEngine_v2" name="ThrustVectorEngine_v2" modPrefabPath="Assets/_ModAssets_/Parts/ThrustVectorEngine_v2.prefab" mass="815" sharesRigidBody="false" combineMeshes="false" disconnectForce="10" underwaterDragScalar="30" defaultMaterials="0,3,5,-1">
+    <Modifiers>
+      <InputController defaultInput="Throttle" defaultMin="0" defaultMax="1" defaultActivationGroup="0" zeroOnDeactivate="true" />
+      <Engine power="70000" fuelConsumptionRate="1.5" type="Turbojet" requiredAirIntake="0.05" throttleResponse="0.120" />
+      <ModModifier id="ThrustVectorEngine_v2_TVC_v2" type="TVC_v2, ThrustVectorEngine_v2-Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <DefaultState maxVectorAngle="0" />
+      </ModModifier>
+    </Modifiers>
+    <AttachPoints>
+      <AttachPoint adaptiveIgnore="false" a="1111" allowRotation="false" display="true" displayWhenDragged="true" fuselageConnection="false" ignoreGrid="false" ignoreSurface="false" jointType="Fixed" wingAttach="true" normal="0,0,-0.9999999" position="0,0,-0.29" />
+      <AttachPoint adaptiveIgnore="false" a="1111" allowRotation="false" display="true" displayWhenDragged="true" fuselageConnection="false" ignoreGrid="false" ignoreSurface="false" jointType="Fixed" wingAttach="true" normal="0,0,0.9999999" position="0,0,0.287" />
+      <AttachPoint adaptiveIgnore="false" a="1111" allowRotation="false" display="true" displayWhenDragged="true" fuselageConnection="false" ignoreGrid="false" ignoreSurface="false" jointType="Fixed" wingAttach="false" normal="0.9999999,0,0" position="0.29,0,0" />
+      <AttachPoint adaptiveIgnore="false" a="1111" allowRotation="false" display="true" displayWhenDragged="true" fuselageConnection="false" ignoreGrid="false" ignoreSurface="false" jointType="Fixed" wingAttach="false" normal="-0.9999999,0,0" position="-0.287,0,0" />
+    </AttachPoints>
+  </PartType>
+  <DesignerPart name="Thrust Vector Engine v2" category="Propulsion" description="Thrust Vector Engine with up to 45 degree angle.">
+    <Assembly>
+      <Parts>
+        <Part id="1" partType="Mod_ThrustVectorEngine_v2_ThrustVectorEngine_v2" position="0,0,0" rotation="0,0,0">
+          <InputController.State defaultInput="Throttle" defaultMin="0" defaultMax="1" defaultActivationGroup="0" zeroOnDeactivate="true" />
+          <Engine.State power="70000" fuelConsumptionRate="1.5" type="Turbojet" requiredAirIntake="0.05" throttleResponse="0.120" />
+        </Part>
+      </Parts>
+    </Assembly>
+  </DesignerPart>
+</Part>
