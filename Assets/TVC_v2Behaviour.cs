@@ -13,11 +13,13 @@ public class TVC_v2Behaviour : Jundroo.SimplePlanes.ModTools.Parts.PartModifierB
     Rigidbody _rb;
     Transform nozzle;
     Transform smoke;
+
     Transform centerOfThrust;
     float prevDir_Vtol = 0f;
     float prevAngle_Vtol = 0f;
     float prevAngle_Yaw = 0f;
     float prevDir_Yaw = 0f;
+    Quaternion originalThrustAngle;
 
     bool tested; // FOR TESTING
 
@@ -34,6 +36,8 @@ public class TVC_v2Behaviour : Jundroo.SimplePlanes.ModTools.Parts.PartModifierB
 
         centerOfThrust = getChildTransform(transform, "CenterOfThrust");
         smoke = getChildTransform(transform, "EngineSmokeSystem");
+
+        originalThrustAngle = centerOfThrust.rotation;
 
         //TESTING
         tested = false;
@@ -63,16 +67,16 @@ public class TVC_v2Behaviour : Jundroo.SimplePlanes.ModTools.Parts.PartModifierB
                 centerOfThrust.Rotate(-angle_Vtol - prevAngle_Vtol, 0, 0, Space.Self);
             }
 
-            // Controls the Left/Right (yaw) angle of nozzle
+            //// Controls the Left/Right (yaw) angle of nozzle
             //if (Math.Sign(angle_Yaw) <= _modifier.maxVectorAngle || Math.Sign(angle_Yaw) == _modifier.maxVectorAngle && dir_Yaw != prevDir_Yaw && dir_Yaw != 0)
             //{
             //    centerOfThrust.Rotate(0, -(angle_Yaw - prevAngle_Yaw), 0, Space.Self);
             //}
 
-            // Resets Left/Right (yaw) angle to 180f when yaw angle is zero. Without this, the center of thrust sometimes does not re-center.
-            //if(angle_Yaw == 0)
+            //// Resets Left/Right (yaw) angle to 180f when yaw angle is zero. Without this, the center of thrust sometimes does not re-center.
+            //if (angle_Yaw == 0 && dir_Yaw == 0)
             //{
-            //    centerOfThrust.localEulerAngles = new Vector3(centerOfThrust.localEulerAngles.x, 180f, centerOfThrust.localEulerAngles.z);
+            //    centerOfThrust.rotation = originalThrustAngle;
             //}
 
             smoke.localEulerAngles = new Vector3(angle_Vtol, smoke.localEulerAngles.y, 180f + angle_Yaw);
