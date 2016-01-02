@@ -34,7 +34,7 @@ public class TVC_v2Behaviour : Jundroo.SimplePlanes.ModTools.Parts.PartModifierB
         Transform engine = getChildTransform(transform, "TVC_Engine");
         nozzle = getChildTransform(engine, "Nozzle");
 
-        centerOfThrust = getChildTransform(transform, "CenterOfThrust");
+        centerOfThrust = getChildTransform(engine, "CenterOfThrust");
         smoke = getChildTransform(transform, "EngineSmokeSystem");
 
         originalThrustAngle = centerOfThrust.rotation;
@@ -62,28 +62,32 @@ public class TVC_v2Behaviour : Jundroo.SimplePlanes.ModTools.Parts.PartModifierB
             float dir_Yaw = Math.Sign(angle_Yaw - prevAngle_Yaw);
 
             // Controls the Up/Down (pitch) angle of nozzle
-            if (Math.Sign(-angle_Vtol) <= _modifier.maxVectorAngle || Math.Sign(-angle_Vtol) == _modifier.maxVectorAngle && dir_Vtol != prevDir_Vtol && dir_Vtol != 0)
+            if (Math.Sign(angle_Vtol) <= _modifier.maxVectorAngle || Math.Sign(angle_Vtol) == _modifier.maxVectorAngle && dir_Vtol != prevDir_Vtol && dir_Vtol != 0)
             {
-                centerOfThrust.Rotate(-angle_Vtol - prevAngle_Vtol, 0, 0, Space.Self);
+                centerOfThrust.Rotate(angle_Vtol - prevAngle_Vtol, 0, 0, Space.Self);
+                smoke.Rotate(angle_Vtol - prevAngle_Vtol, 0, 0, Space.Self);
+                nozzle.Rotate(angle_Vtol - prevAngle_Vtol, 0, 0, Space.Self);
             }
 
-            //// Controls the Left/Right (yaw) angle of nozzle
-            //if (Math.Sign(angle_Yaw) <= _modifier.maxVectorAngle || Math.Sign(angle_Yaw) == _modifier.maxVectorAngle && dir_Yaw != prevDir_Yaw && dir_Yaw != 0)
-            //{
-            //    centerOfThrust.Rotate(0, -(angle_Yaw - prevAngle_Yaw), 0, Space.Self);
-            //}
+            // Controls the Left/Right (yaw) angle of nozzle
+            if (Math.Sign(angle_Yaw) <= _modifier.maxVectorAngle || Math.Sign(angle_Yaw) == _modifier.maxVectorAngle && dir_Yaw != prevDir_Yaw && dir_Yaw != 0)
+            {
+                centerOfThrust.Rotate(0, (angle_Yaw - prevAngle_Yaw), 0, Space.Self);
+                smoke.Rotate(0, 0, angle_Yaw - prevAngle_Yaw, Space.Self);
+                nozzle.Rotate(0, 0, -(angle_Yaw - prevAngle_Yaw), Space.Self);
+            }
 
             //// Resets Left/Right (yaw) angle to 180f when yaw angle is zero. Without this, the center of thrust sometimes does not re-center.
-            //if (angle_Yaw == 0 && dir_Yaw == 0)
-            //{
-            //    centerOfThrust.rotation = originalThrustAngle;
-            //}
+            if (_player.Controls.Yaw == 0 && centerOfThrust.localEulerAngles.y < 182f && centerOfThrust.localEulerAngles.y > 178f)
+            {
+                centerOfThrust.localEulerAngles = new Vector3(centerOfThrust.localEulerAngles.x, 180f, centerOfThrust.localEulerAngles.z);
+            }
 
-            smoke.localEulerAngles = new Vector3(angle_Vtol, smoke.localEulerAngles.y, 180f + angle_Yaw);
-            nozzle.localEulerAngles = new Vector3(angle_Vtol, nozzle.localEulerAngles.y, angle_Yaw);
+            //smoke.localEulerAngles = new Vector3(-90f + angle_Vtol, smoke.localEulerAngles.y, angle_Yaw);
+            //nozzle.localEulerAngles = new Vector3(-90f + angle_Vtol, angle_Yaw, nozzle.localEulerAngles.z);
 
             prevDir_Vtol = dir_Vtol;
-            prevAngle_Vtol = -angle_Vtol;
+            prevAngle_Vtol = angle_Vtol;
 
             prevDir_Yaw = dir_Yaw;
             prevAngle_Yaw = angle_Yaw;

@@ -9,10 +9,10 @@
       </ModModifier>
     </Modifiers>
     <AttachPoints>
-      <AttachPoint adaptiveIgnore="false" a="1111" allowRotation="false" display="true" displayWhenDragged="true" fuselageConnection="false" ignoreGrid="false" ignoreSurface="false" jointType="Fixed" wingAttach="true" normal="0,0,-0.9999999" position="0,0,-0.29" />
-      <AttachPoint adaptiveIgnore="false" a="1111" allowRotation="false" display="true" displayWhenDragged="true" fuselageConnection="false" ignoreGrid="false" ignoreSurface="false" jointType="Fixed" wingAttach="true" normal="0,0,0.9999999" position="0,0,0.287" />
-      <AttachPoint adaptiveIgnore="false" a="1111" allowRotation="false" display="true" displayWhenDragged="true" fuselageConnection="false" ignoreGrid="false" ignoreSurface="false" jointType="Fixed" wingAttach="false" normal="0.9999999,0,0" position="0.29,0,0" />
-      <AttachPoint adaptiveIgnore="false" a="1111" allowRotation="false" display="true" displayWhenDragged="true" fuselageConnection="false" ignoreGrid="false" ignoreSurface="false" jointType="Fixed" wingAttach="false" normal="-0.9999999,0,0" position="-0.287,0,0" />
+      <AttachPoint adaptiveIgnore="false" a="1111" allowRotation="false" display="true" displayWhenDragged="true" fuselageConnection="false" ignoreGrid="false" ignoreSurface="false" jointType="Fixed" wingAttach="false" normal="0.9999999,0,0" position="0.276,0,0.001" />
+      <AttachPoint adaptiveIgnore="false" a="1111" allowRotation="false" display="true" displayWhenDragged="true" fuselageConnection="false" ignoreGrid="false" ignoreSurface="false" jointType="Fixed" wingAttach="false" normal="-1,0,0" position="-0.274,0,0.001" />
+      <AttachPoint adaptiveIgnore="false" a="1111" allowRotation="false" display="true" displayWhenDragged="true" fuselageConnection="false" ignoreGrid="false" ignoreSurface="false" jointType="Fixed" wingAttach="false" normal="0,1,0" position="-0.001,0.271,0.002" />
+      <AttachPoint adaptiveIgnore="false" a="1111" allowRotation="false" display="true" displayWhenDragged="true" fuselageConnection="false" ignoreGrid="false" ignoreSurface="false" jointType="Fixed" wingAttach="false" normal="0,-1,0" position="0,-0.271,0" />
     </AttachPoints>
   </PartType>
   <DesignerPart name="Thrust Vector Engine v2" category="Propulsion" description="Thrust Vector Engine with up to 45 degree angle.">

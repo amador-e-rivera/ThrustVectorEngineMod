@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ModManifest>
-  <Mod name="ThrustVectorEngine_v2" author="Amador Rivera" versionMajor="1" versionMinor="0" lastUpdated="1/1/2016 10:40:18 PM" apiVersion="1.0.0.0" iconPath="" description="">
+  <Mod name="ThrustVectorEngine_v2" author="Amador Rivera" versionMajor="1" versionMinor="0" lastUpdated="1/2/2016 6:28:52 AM" apiVersion="1.0.0.0" iconPath="" description="">
     <GameObjects>
       <GameObject name="ThrustVectorEngine_v2" path="Assets/_ModAssets_/Parts/ThrustVectorEngine_v2.prefab" />
     </GameObjects>
     <Assets>
-      <Asset path="Assets/TVC_Engine_v2_f.blend" />
+      <Asset path="Assets/_ModAssets_/Parts/TVC_Engine_v2_unity.blend" />
     </Assets>
     <Assemblies>
       <Assembly name="ThrustVectorEngine_v2-Assembly-CSharp.dll" path="Assets/_ModAssets_/ThrustVectorEngine_v2-Assembly-CSharp.dll.bytes" isProjectAssembly="true" />
