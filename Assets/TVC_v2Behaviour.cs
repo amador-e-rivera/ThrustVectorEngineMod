@@ -77,25 +77,17 @@ public class TVC_v2Behaviour : Jundroo.SimplePlanes.ModTools.Parts.PartModifierB
                 nozzle.Rotate(0, 0, -(angle_Yaw - prevAngle_Yaw), Space.Self);
             }
 
-            //// Resets Left/Right (yaw) angle to 180f when yaw angle is zero. Without this, the center of thrust sometimes does not re-center.
+            // Resets Left/Right (yaw) angle to 180f when yaw angle is zero. Without this, the center of thrust sometimes does not re-center correctly.
             if (_player.Controls.Yaw == 0 && centerOfThrust.localEulerAngles.y < 182f && centerOfThrust.localEulerAngles.y > 178f)
             {
                 centerOfThrust.localEulerAngles = new Vector3(centerOfThrust.localEulerAngles.x, 180f, centerOfThrust.localEulerAngles.z);
             }
-
-            //smoke.localEulerAngles = new Vector3(-90f + angle_Vtol, smoke.localEulerAngles.y, angle_Yaw);
-            //nozzle.localEulerAngles = new Vector3(-90f + angle_Vtol, angle_Yaw, nozzle.localEulerAngles.z);
 
             prevDir_Vtol = dir_Vtol;
             prevAngle_Vtol = angle_Vtol;
 
             prevDir_Yaw = dir_Yaw;
             prevAngle_Yaw = angle_Yaw;
-
-            _service.GameWorld.ShowStatusMessage(
-                "CenterOfThrust: " + centerOfThrust.localEulerAngles.x + ", " + centerOfThrust.localEulerAngles.y + ", " + centerOfThrust.localEulerAngles.z + "\n" +
-                "Vtol:" + angle_Vtol + "\n" +
-                "angle_Yaw: " + angle_Yaw);
         }
         catch (Exception ex)
         {
